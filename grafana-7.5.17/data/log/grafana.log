@@ -1,0 +1,634 @@
+t=2025-06-24T00:00:45+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-24T00:00:45+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=13 size=36 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-24T00:01:21+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-24T00:01:21+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=29 size=36 referer="http://localhost:3000/d/-7G8XJYHk/jsa?editPanel=2&orgId=1"
+t=2025-06-24T00:05:40+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-24T00:05:40+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=36 size=36 referer="http://localhost:3000/d/-7G8XJYHk/jsa?editPanel=2&orgId=1"
+t=2025-06-24T00:06:34+0900 lvl=info msg="Shutdown started" logger=server reason="System signal: interrupt"
+t=2025-06-25T10:53:39+0900 lvl=info msg="Starting Grafana" logger=server version=7.5.17 commit=84411794f3 branch=HEAD compiled=2022-09-26T20:11:15+0900
+t=2025-06-25T10:53:39+0900 lvl=info msg="Config loaded from" logger=settings file=C:\\app\\grafana-7.5.17/conf/defaults.ini
+t=2025-06-25T10:53:39+0900 lvl=info msg="Path Home" logger=settings path=C:\\app\\grafana-7.5.17
+t=2025-06-25T10:53:39+0900 lvl=info msg="Path Data" logger=settings path=C:\\app\\grafana-7.5.17\\data
+t=2025-06-25T10:53:39+0900 lvl=info msg="Path Logs" logger=settings path=C:\\app\\grafana-7.5.17\\data\\log
+t=2025-06-25T10:53:39+0900 lvl=info msg="Path Plugins" logger=settings path=C:\\app\\grafana-7.5.17\\data\\plugins
+t=2025-06-25T10:53:39+0900 lvl=info msg="Path Provisioning" logger=settings path=C:\\app\\grafana-7.5.17\\conf\\provisioning
+t=2025-06-25T10:53:39+0900 lvl=info msg="App mode production" logger=settings
+t=2025-06-25T10:53:39+0900 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=postgres
+t=2025-06-25T10:53:39+0900 lvl=info msg="Starting DB migrations" logger=migrator
+t=2025-06-25T10:53:40+0900 lvl=info msg="migrations completed" logger=migrator performed=0 skipped=279 duration=516.1µs
+t=2025-06-25T10:53:40+0900 lvl=info msg="Starting plugin search" logger=plugins
+t=2025-06-25T10:53:40+0900 lvl=info msg="Registering plugin" logger=plugins id=input
+t=2025-06-25T10:53:41+0900 lvl=info msg="HTTP Server Listen" logger=http.server address=[::]:3000 protocol=http subUrl= socket=
+t=2025-06-25T11:16:47+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T11:16:47+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=19 size=36 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T11:16:50+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T11:16:50+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=37 size=36 referer="http://localhost:3000/d/-7G8XJYHk/jsa?editPanel=2&orgId=1"
+t=2025-06-25T12:45:46+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T12:45:46+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=17 size=36 referer="http://localhost:3000/d/-7G8XJYHk/jsa?editPanel=2&orgId=1"
+t=2025-06-25T12:45:55+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T12:45:55+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=8 size=36 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T12:46:38+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T12:46:38+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T12:47:33+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T12:47:33+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=7 size=36 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T12:47:33+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T12:47:33+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=8 size=36 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T12:47:37+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T12:47:37+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=7 size=36 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T13:16:22+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=823 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T13:16:24+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=823 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T13:17:21+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=2 size=827 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T13:17:29+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=19 size=34765 referer=
+t=2025-06-25T13:32:41+0900 lvl=info msg="Starting Grafana" logger=server version=7.5.17 commit=84411794f3 branch=HEAD compiled=2022-09-26T20:11:15+0900
+t=2025-06-25T13:32:41+0900 lvl=info msg="Config loaded from" logger=settings file=C:\\app\\grafana-7.5.17/conf/defaults.ini
+t=2025-06-25T13:32:41+0900 lvl=info msg="Path Home" logger=settings path=C:\\app\\grafana-7.5.17
+t=2025-06-25T13:32:41+0900 lvl=info msg="Path Data" logger=settings path=C:\\app\\grafana-7.5.17\\data
+t=2025-06-25T13:32:41+0900 lvl=info msg="Path Logs" logger=settings path=C:\\app\\grafana-7.5.17\\data\\log
+t=2025-06-25T13:32:41+0900 lvl=info msg="Path Plugins" logger=settings path=C:\\app\\grafana-7.5.17\\data\\plugins
+t=2025-06-25T13:32:41+0900 lvl=info msg="Path Provisioning" logger=settings path=C:\\app\\grafana-7.5.17\\conf\\provisioning
+t=2025-06-25T13:32:41+0900 lvl=info msg="App mode production" logger=settings
+t=2025-06-25T13:32:41+0900 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=postgres
+t=2025-06-25T13:32:41+0900 lvl=info msg="Starting DB migrations" logger=migrator
+t=2025-06-25T13:32:42+0900 lvl=info msg="migrations completed" logger=migrator performed=0 skipped=279 duration=536.9µs
+t=2025-06-25T13:32:42+0900 lvl=info msg="Starting plugin search" logger=plugins
+t=2025-06-25T13:32:44+0900 lvl=info msg="Registering plugin" logger=plugins id=input
+t=2025-06-25T13:32:45+0900 lvl=info msg="HTTP Server Listen" logger=http.server address=[::]:3000 protocol=http subUrl= socket=
+t=2025-06-25T13:51:05+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=7 size=1118 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T13:51:07+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=1118 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T13:51:08+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=1118 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T13:51:08+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=1118 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T13:51:08+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=1118 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T13:51:08+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=1118 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T13:51:09+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=1118 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T13:51:50+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=1069 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T13:51:53+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=6 size=34765 referer=
+t=2025-06-25T13:51:58+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=1069 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T13:53:20+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=7 size=1041 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T13:53:22+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=1041 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T13:53:29+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=11 size=34765 referer=
+t=2025-06-25T13:53:42+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=1041 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T13:56:22+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=1041 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T13:56:36+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=1041 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T14:02:58+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T14:02:58+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=7 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T14:02:58+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T14:02:58+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T14:03:08+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T14:03:08+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=21 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?editPanel=2&orgId=1"
+t=2025-06-25T14:03:08+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T14:03:08+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?editPanel=2&orgId=1"
+t=2025-06-25T14:11:27+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T14:11:27+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=20 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?editPanel=2&orgId=1"
+t=2025-06-25T14:11:27+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T14:11:27+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?editPanel=2&orgId=1"
+t=2025-06-25T14:11:34+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T14:11:34+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T14:11:37+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T14:11:37+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?editPanel=2&orgId=1"
+t=2025-06-25T14:28:39+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T14:28:39+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=20 size=36 referer="http://localhost:3000/dashboard/new?orgId=1"
+t=2025-06-25T14:28:50+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T14:28:50+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=36 referer="http://localhost:3000/d/it7I1YEHk/search_text?orgId=1"
+t=2025-06-25T14:38:10+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T14:38:10+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=45 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?editPanel=2&orgId=1"
+t=2025-06-25T14:42:39+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T14:42:39+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=11 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T14:42:44+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T14:42:44+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T14:44:56+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T14:44:56+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T14:44:56+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T14:44:56+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T14:44:59+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T14:44:59+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=7 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T14:44:59+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T14:44:59+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T14:45:05+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T14:45:05+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T15:19:42+0900 lvl=info msg="Starting Grafana" logger=server version=7.5.17 commit=84411794f3 branch=HEAD compiled=2022-09-26T20:11:15+0900
+t=2025-06-25T15:19:42+0900 lvl=info msg="Config loaded from" logger=settings file=C:\\app\\grafana-7.5.17/conf/defaults.ini
+t=2025-06-25T15:19:42+0900 lvl=info msg="Path Home" logger=settings path=C:\\app\\grafana-7.5.17
+t=2025-06-25T15:19:42+0900 lvl=info msg="Path Data" logger=settings path=C:\\app\\grafana-7.5.17\\data
+t=2025-06-25T15:19:42+0900 lvl=info msg="Path Logs" logger=settings path=C:\\app\\grafana-7.5.17\\data\\log
+t=2025-06-25T15:19:42+0900 lvl=info msg="Path Plugins" logger=settings path=C:\\app\\grafana-7.5.17\\data\\plugins
+t=2025-06-25T15:19:42+0900 lvl=info msg="Path Provisioning" logger=settings path=C:\\app\\grafana-7.5.17\\conf\\provisioning
+t=2025-06-25T15:19:42+0900 lvl=info msg="App mode production" logger=settings
+t=2025-06-25T15:19:42+0900 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=postgres
+t=2025-06-25T15:19:42+0900 lvl=info msg="Starting DB migrations" logger=migrator
+t=2025-06-25T15:19:43+0900 lvl=info msg="migrations completed" logger=migrator performed=0 skipped=279 duration=518.6µs
+t=2025-06-25T15:19:43+0900 lvl=info msg="Starting plugin search" logger=plugins
+t=2025-06-25T15:19:44+0900 lvl=info msg="Registering plugin" logger=plugins id=input
+t=2025-06-25T15:19:44+0900 lvl=info msg="HTTP Server Listen" logger=http.server address=[::]:3000 protocol=http subUrl= socket=
+t=2025-06-25T15:22:37+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=11 size=1107 referer="http://localhost:3000/d/-7G8XJYHk/jsa?orgId=1"
+t=2025-06-25T15:31:58+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T15:31:58+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=12 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T15:40:58+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T15:40:58+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T15:40:59+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T15:40:59+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T15:41:01+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T15:41:01+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T15:44:37+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T15:44:37+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=36 referer="http://localhost:3000/dashboard/new?orgId=1"
+t=2025-06-25T15:44:37+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T15:44:37+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=8 size=36 referer="http://localhost:3000/dashboard/new?orgId=1"
+t=2025-06-25T15:44:48+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T15:44:48+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/OcHbLLPHk/naljja?orgId=1"
+t=2025-06-25T15:44:48+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T15:44:48+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/OcHbLLPHk/naljja?orgId=1"
+t=2025-06-25T15:44:51+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T15:44:51+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=7 size=36 referer="http://localhost:3000/d/OcHbLLPHk/naljja?editPanel=2&orgId=1"
+t=2025-06-25T15:44:51+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T15:44:51+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=36 referer="http://localhost:3000/d/OcHbLLPHk/naljja?editPanel=2&orgId=1"
+t=2025-06-25T15:49:53+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-25T15:49:53+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T15:51:12+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=13 size=34765 referer=
+t=2025-06-25T15:51:25+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=26 size=34765 referer=
+t=2025-06-25T15:55:19+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=32 size=34765 referer=
+t=2025-06-25T15:58:49+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=13 size=34765 referer=
+t=2025-06-25T16:04:29+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=5 size=34765 referer=
+t=2025-06-25T16:09:14+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=9 size=34765 referer=
+t=2025-06-25T16:12:11+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=8 size=34765 referer=
+t=2025-06-25T16:23:53+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=10 size=34765 referer=
+t=2025-06-25T16:24:01+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=6 size=34765 referer=
+t=2025-06-25T16:24:13+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=10 size=34765 referer=
+t=2025-06-25T18:14:47+0900 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/d/9s17ylYHz/cctv_screen status=302 remote_addr=[::1] time_ms=0 size=29 referer=
+t=2025-06-25T18:14:52+0900 lvl=info msg="Successful Login" logger=http.server User=admin@localhost
+t=2025-06-25T18:15:00+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=1154 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T18:15:06+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=1156 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T18:15:09+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=6 size=34765 referer=
+t=2025-06-25T18:17:21+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=1156 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T18:17:33+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=1156 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T18:18:17+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=1154 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T18:18:31+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=1154 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T18:19:04+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=5 size=34765 referer=
+t=2025-06-25T18:19:06+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=15 size=34765 referer=
+t=2025-06-25T18:30:40+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=22 size=34765 referer=
+t=2025-06-25T18:31:50+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=6 size=34765 referer=
+t=2025-06-25T18:32:35+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=5 size=34765 referer=
+t=2025-06-25T18:32:48+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=1395 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T18:33:53+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=8 size=34765 referer=
+t=2025-06-25T18:34:04+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=1387 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T18:34:14+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=1387 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-25T18:34:42+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=8 size=34765 referer=
+t=2025-06-25T18:37:39+0900 lvl=info msg="Shutdown started" logger=server reason="System signal: terminated"
+t=2025-06-26T13:19:58+0900 lvl=info msg="Starting Grafana" logger=server version=7.5.17 commit=84411794f3 branch=HEAD compiled=2022-09-26T20:11:15+0900
+t=2025-06-26T13:19:58+0900 lvl=info msg="Config loaded from" logger=settings file=C:\\app\\grafana-7.5.17/conf/defaults.ini
+t=2025-06-26T13:19:58+0900 lvl=info msg="Path Home" logger=settings path=C:\\app\\grafana-7.5.17
+t=2025-06-26T13:19:58+0900 lvl=info msg="Path Data" logger=settings path=C:\\app\\grafana-7.5.17\\data
+t=2025-06-26T13:19:58+0900 lvl=info msg="Path Logs" logger=settings path=C:\\app\\grafana-7.5.17\\data\\log
+t=2025-06-26T13:19:58+0900 lvl=info msg="Path Plugins" logger=settings path=C:\\app\\grafana-7.5.17\\data\\plugins
+t=2025-06-26T13:19:58+0900 lvl=info msg="Path Provisioning" logger=settings path=C:\\app\\grafana-7.5.17\\conf\\provisioning
+t=2025-06-26T13:19:58+0900 lvl=info msg="App mode production" logger=settings
+t=2025-06-26T13:19:58+0900 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=postgres
+t=2025-06-26T13:19:58+0900 lvl=info msg="Starting DB migrations" logger=migrator
+t=2025-06-26T13:19:59+0900 lvl=info msg="migrations completed" logger=migrator performed=0 skipped=279 duration=0s
+t=2025-06-26T13:19:59+0900 lvl=info msg="Starting plugin search" logger=plugins
+t=2025-06-26T13:20:00+0900 lvl=info msg="Registering plugin" logger=plugins id=input
+t=2025-06-26T13:20:00+0900 lvl=info msg="HTTP Server Listen" logger=http.server address=[::]:3000 protocol=http subUrl= socket=
+t=2025-06-26T14:29:41+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:29:41+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?orgId=1"
+t=2025-06-26T14:29:41+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:29:41+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?orgId=1"
+t=2025-06-26T14:30:16+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:30:16+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=14 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?editPanel=2&orgId=1"
+t=2025-06-26T14:30:16+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:30:16+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?editPanel=2&orgId=1"
+t=2025-06-26T14:30:20+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:30:20+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?orgId=1"
+t=2025-06-26T14:30:20+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:30:20+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=2 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?orgId=1"
+t=2025-06-26T14:30:20+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:30:20+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=23 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?orgId=1"
+t=2025-06-26T14:30:27+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:30:27+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?editPanel=2&orgId=1"
+t=2025-06-26T14:30:27+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:30:27+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?editPanel=2&orgId=1"
+t=2025-06-26T14:30:27+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:30:27+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?editPanel=2&orgId=1"
+t=2025-06-26T14:33:05+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:33:05+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?orgId=1"
+t=2025-06-26T14:33:05+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:33:05+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?orgId=1"
+t=2025-06-26T14:33:05+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:33:05+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=7 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?orgId=1"
+t=2025-06-26T14:33:07+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:33:07+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?orgId=1"
+t=2025-06-26T14:33:18+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:33:18+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?orgId=1"
+t=2025-06-26T14:33:21+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=7 size=34765 referer=
+t=2025-06-26T14:34:12+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:34:12+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?orgId=1"
+t=2025-06-26T14:34:12+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:34:12+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?orgId=1"
+t=2025-06-26T14:34:12+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:34:12+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?orgId=1"
+t=2025-06-26T14:34:15+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:34:15+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?orgId=1"
+t=2025-06-26T14:34:16+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:34:16+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?orgId=1"
+t=2025-06-26T14:36:18+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:36:18+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=9 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?editPanel=2&orgId=1"
+t=2025-06-26T14:36:18+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:36:18+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?editPanel=2&orgId=1"
+t=2025-06-26T14:36:18+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:36:18+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/d/0C_SylLHz/code-gwanri?editPanel=2&orgId=1"
+t=2025-06-26T14:40:23+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:40:23+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/dashboard/new?orgId=1"
+t=2025-06-26T14:40:23+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:40:23+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=36 referer="http://localhost:3000/dashboard/new?orgId=1"
+t=2025-06-26T14:40:23+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:40:23+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=10 size=36 referer="http://localhost:3000/dashboard/new?orgId=1"
+t=2025-06-26T14:40:23+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:40:23+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/dashboard/new?orgId=1"
+t=2025-06-26T14:40:23+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:40:23+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=36 referer="http://localhost:3000/dashboard/new?orgId=1"
+t=2025-06-26T14:40:46+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:40:46+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/dashboard/new?orgId=1&editPanel=2"
+t=2025-06-26T14:40:46+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:40:46+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=8 size=36 referer="http://localhost:3000/dashboard/new?orgId=1&editPanel=2"
+t=2025-06-26T14:40:46+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:40:46+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=7 size=36 referer="http://localhost:3000/dashboard/new?orgId=1&editPanel=2"
+t=2025-06-26T14:40:46+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:40:46+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=14 size=36 referer="http://localhost:3000/dashboard/new?orgId=1&editPanel=2"
+t=2025-06-26T14:40:46+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:40:46+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=11 size=36 referer="http://localhost:3000/dashboard/new?orgId=1&editPanel=2"
+t=2025-06-26T14:40:46+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-26T14:40:46+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/dashboard/new?orgId=1&editPanel=2"
+t=2025-06-26T14:49:55+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/favicon.ico status=404 remote_addr=[::1] time_ms=5 size=34765 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?orgId=1"
+t=2025-06-26T14:56:01+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=5 size=34765 referer=
+t=2025-06-26T14:56:05+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=9 size=34765 referer=
+t=2025-06-26T14:57:58+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=9 size=34765 referer=
+t=2025-06-26T14:59:03+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=3 size=34765 referer=
+t=2025-06-26T15:01:09+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=5 size=34765 referer=
+t=2025-06-26T15:02:12+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=6 size=34765 referer=
+t=2025-06-26T15:02:41+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=5 size=34765 referer=
+t=2025-06-26T15:03:37+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=8 size=34765 referer=
+t=2025-06-26T15:03:55+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=10 size=34765 referer=
+t=2025-06-26T15:08:17+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=10 size=34765 referer=
+t=2025-06-26T15:08:43+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=5 size=34765 referer=
+t=2025-06-26T15:10:21+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=7 size=34765 referer=
+t=2025-06-26T15:11:09+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=5 size=34765 referer=
+t=2025-06-26T17:28:53+0900 lvl=info msg="Starting Grafana" logger=server version=7.5.17 commit=84411794f3 branch=HEAD compiled=2022-09-26T20:11:15+0900
+t=2025-06-26T17:28:53+0900 lvl=info msg="Config loaded from" logger=settings file=C:\\app\\grafana-7.5.17/conf/defaults.ini
+t=2025-06-26T17:28:53+0900 lvl=info msg="Path Home" logger=settings path=C:\\app\\grafana-7.5.17
+t=2025-06-26T17:28:53+0900 lvl=info msg="Path Data" logger=settings path=C:\\app\\grafana-7.5.17\\data
+t=2025-06-26T17:28:53+0900 lvl=info msg="Path Logs" logger=settings path=C:\\app\\grafana-7.5.17\\data\\log
+t=2025-06-26T17:28:53+0900 lvl=info msg="Path Plugins" logger=settings path=C:\\app\\grafana-7.5.17\\data\\plugins
+t=2025-06-26T17:28:53+0900 lvl=info msg="Path Provisioning" logger=settings path=C:\\app\\grafana-7.5.17\\conf\\provisioning
+t=2025-06-26T17:28:53+0900 lvl=info msg="App mode production" logger=settings
+t=2025-06-26T17:28:53+0900 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=postgres
+t=2025-06-26T17:28:53+0900 lvl=info msg="Starting DB migrations" logger=migrator
+t=2025-06-26T17:28:53+0900 lvl=info msg="migrations completed" logger=migrator performed=0 skipped=279 duration=518.7µs
+t=2025-06-26T17:28:53+0900 lvl=info msg="Starting plugin search" logger=plugins
+t=2025-06-26T17:28:54+0900 lvl=info msg="Registering plugin" logger=plugins id=input
+t=2025-06-26T17:28:55+0900 lvl=info msg="HTTP Server Listen" logger=http.server address=[::]:3000 protocol=http subUrl= socket=
+t=2025-06-26T18:14:42+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=8 size=34765 referer=
+t=2025-06-26T18:33:45+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=17 size=34765 referer=
+t=2025-06-26T18:38:05+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=13 size=34765 referer=
+t=2025-06-26T18:38:46+0900 lvl=info msg="Shutdown started" logger=server reason="System signal: terminated"
+t=2025-06-27T13:12:30+0900 lvl=info msg="Starting Grafana" logger=server version=7.5.17 commit=84411794f3 branch=HEAD compiled=2022-09-26T20:11:15+0900
+t=2025-06-27T13:12:30+0900 lvl=info msg="Config loaded from" logger=settings file=C:\\app\\grafana-7.5.17/conf/defaults.ini
+t=2025-06-27T13:12:30+0900 lvl=info msg="Path Home" logger=settings path=C:\\app\\grafana-7.5.17
+t=2025-06-27T13:12:30+0900 lvl=info msg="Path Data" logger=settings path=C:\\app\\grafana-7.5.17\\data
+t=2025-06-27T13:12:30+0900 lvl=info msg="Path Logs" logger=settings path=C:\\app\\grafana-7.5.17\\data\\log
+t=2025-06-27T13:12:30+0900 lvl=info msg="Path Plugins" logger=settings path=C:\\app\\grafana-7.5.17\\data\\plugins
+t=2025-06-27T13:12:30+0900 lvl=info msg="Path Provisioning" logger=settings path=C:\\app\\grafana-7.5.17\\conf\\provisioning
+t=2025-06-27T13:12:30+0900 lvl=info msg="App mode production" logger=settings
+t=2025-06-27T13:12:30+0900 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=postgres
+t=2025-06-27T13:12:30+0900 lvl=info msg="Starting DB migrations" logger=migrator
+t=2025-06-27T13:12:30+0900 lvl=info msg="migrations completed" logger=migrator performed=0 skipped=279 duration=0s
+t=2025-06-27T13:12:30+0900 lvl=info msg="Starting plugin search" logger=plugins
+t=2025-06-27T13:12:31+0900 lvl=info msg="Registering plugin" logger=plugins id=input
+t=2025-06-27T13:12:32+0900 lvl=info msg="HTTP Server Listen" logger=http.server address=[::]:3000 protocol=http subUrl= socket=
+t=2025-06-27T13:13:38+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/xlsx.full.min.js status=404 remote_addr=[::1] time_ms=9 size=34765 referer="http://localhost:3000/dashboard/new?orgId=1"
+t=2025-06-27T13:13:38+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/jquery-3.4.1.min.js status=404 remote_addr=[::1] time_ms=13 size=34765 referer="http://localhost:3000/dashboard/new?orgId=1"
+t=2025-06-27T13:13:38+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/FileSaver.min.js status=404 remote_addr=[::1] time_ms=437 size=34765 referer="http://localhost:3000/dashboard/new?orgId=1"
+t=2025-06-27T13:13:57+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/xlsx.full.min.js status=404 remote_addr=[::1] time_ms=6 size=34765 referer="http://localhost:3000/d/_WTs1lENz/excel_download?orgId=1"
+t=2025-06-27T13:13:57+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/FileSaver.min.js status=404 remote_addr=[::1] time_ms=15 size=34765 referer="http://localhost:3000/d/_WTs1lENz/excel_download?orgId=1"
+t=2025-06-27T13:13:57+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/jquery-3.4.1.min.js status=404 remote_addr=[::1] time_ms=371 size=34765 referer="http://localhost:3000/d/_WTs1lENz/excel_download?orgId=1"
+t=2025-06-27T13:14:00+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/favicon.ico status=404 remote_addr=[::1] time_ms=4 size=34765 referer="http://localhost:3000/d/_WTs1lENz/excel_download?orgId=1"
+t=2025-06-27T13:15:37+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/xlsx.full.min.js status=404 remote_addr=[::1] time_ms=5 size=34765 referer="http://localhost:3000/d/_WTs1lENz/excel_download?orgId=1"
+t=2025-06-27T13:15:37+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/jquery-3.4.1.min.js status=404 remote_addr=[::1] time_ms=10 size=34765 referer="http://localhost:3000/d/_WTs1lENz/excel_download?orgId=1"
+t=2025-06-27T13:15:38+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/FileSaver.min.js status=404 remote_addr=[::1] time_ms=461 size=34765 referer="http://localhost:3000/d/_WTs1lENz/excel_download?orgId=1"
+t=2025-06-27T15:25:37+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=23 size=34765 referer=
+t=2025-06-27T15:25:49+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=18 size=34765 referer=
+t=2025-06-27T15:32:19+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=107 size=34765 referer=
+t=2025-06-27T15:32:28+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=15 size=34765 referer=
+t=2025-06-27T15:33:15+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=10 size=34765 referer=
+t=2025-06-27T15:37:31+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T15:37:31+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/dashboard/new?editPanel=2&orgId=1"
+t=2025-06-27T15:37:40+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T15:37:40+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=8 size=36 referer=http://localhost:3000/d/W9aqw_ENz/user
+t=2025-06-27T15:37:40+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T15:37:40+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/W9aqw_ENz/user?orgId=1"
+t=2025-06-27T15:50:26+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=6 size=34765 referer=
+t=2025-06-27T15:52:09+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=15 size=34765 referer=
+t=2025-06-27T15:52:47+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=19 size=34765 referer=
+t=2025-06-27T16:22:39+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=9 size=34765 referer=
+t=2025-06-27T16:24:43+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=9 size=34765 referer=
+t=2025-06-27T16:25:03+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=10 size=34765 referer=
+t=2025-06-27T16:26:06+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=6 size=34765 referer=
+t=2025-06-27T16:26:17+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=7 size=34765 referer=
+t=2025-06-27T16:32:24+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=[::1] time_ms=10 size=88 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?editPanel=2&orgId=1"
+t=2025-06-27T16:32:36+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=6 size=34765 referer=
+t=2025-06-27T16:32:47+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=8 size=34765 referer=
+t=2025-06-27T16:36:37+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=11 size=34765 referer=
+t=2025-06-27T16:37:59+0900 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/d/9s17ylYHz/cctv_screen status=302 remote_addr=[::1] time_ms=12 size=29 referer=
+t=2025-06-27T16:38:05+0900 lvl=info msg="Successful Login" logger=http.server User=admin@localhost
+t=2025-06-27T16:38:17+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=6 size=34765 referer=
+t=2025-06-27T17:23:52+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=17 size=34765 referer=
+t=2025-06-27T17:27:36+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=13 size=34765 referer=
+t=2025-06-27T17:31:25+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=12 size=34765 referer=
+t=2025-06-27T17:34:40+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=4 size=34765 referer=
+t=2025-06-27T17:35:48+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=7 size=34765 referer=
+t=2025-06-27T17:37:47+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=11 size=34765 referer=
+t=2025-06-27T17:39:23+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=11 size=34765 referer=
+t=2025-06-27T17:39:38+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=6 size=34765 referer=
+t=2025-06-27T17:42:50+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=7 size=34765 referer=
+t=2025-06-27T17:42:59+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=8 size=34765 referer=
+t=2025-06-27T17:44:19+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=6 size=34765 referer=
+t=2025-06-27T17:47:46+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=6 size=34765 referer=
+t=2025-06-27T17:50:06+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=5 size=34765 referer=
+t=2025-06-27T18:00:02+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=7 size=34765 referer=
+t=2025-06-27T18:00:27+0900 lvl=info msg="Shutdown started" logger=server reason="System signal: terminated"
+t=2025-06-27T19:06:17+0900 lvl=info msg="Starting Grafana" logger=server version=7.5.17 commit=84411794f3 branch=HEAD compiled=2022-09-26T20:11:15+0900
+t=2025-06-27T19:06:17+0900 lvl=info msg="Config loaded from" logger=settings file=C:\\app\\grafana-7.5.17/conf/defaults.ini
+t=2025-06-27T19:06:17+0900 lvl=info msg="Path Home" logger=settings path=C:\\app\\grafana-7.5.17
+t=2025-06-27T19:06:17+0900 lvl=info msg="Path Data" logger=settings path=C:\\app\\grafana-7.5.17\\data
+t=2025-06-27T19:06:17+0900 lvl=info msg="Path Logs" logger=settings path=C:\\app\\grafana-7.5.17\\data\\log
+t=2025-06-27T19:06:17+0900 lvl=info msg="Path Plugins" logger=settings path=C:\\app\\grafana-7.5.17\\data\\plugins
+t=2025-06-27T19:06:17+0900 lvl=info msg="Path Provisioning" logger=settings path=C:\\app\\grafana-7.5.17\\conf\\provisioning
+t=2025-06-27T19:06:17+0900 lvl=info msg="App mode production" logger=settings
+t=2025-06-27T19:06:17+0900 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=postgres
+t=2025-06-27T19:06:17+0900 lvl=info msg="Starting DB migrations" logger=migrator
+t=2025-06-27T19:06:18+0900 lvl=info msg="migrations completed" logger=migrator performed=0 skipped=279 duration=535.4µs
+t=2025-06-27T19:06:18+0900 lvl=info msg="Starting plugin search" logger=plugins
+t=2025-06-27T19:06:20+0900 lvl=info msg="Registering plugin" logger=plugins id=input
+t=2025-06-27T19:06:20+0900 lvl=info msg="HTTP Server Listen" logger=http.server address=[::]:3000 protocol=http subUrl= socket=
+t=2025-06-27T19:07:13+0900 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/ status=302 remote_addr=[::1] time_ms=0 size=29 referer=
+t=2025-06-27T19:07:19+0900 lvl=info msg="Successful Login" logger=http.server User=admin@localhost
+t=2025-06-27T19:15:43+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T19:15:43+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=20 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-06-27T19:15:43+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T19:15:43+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=31 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-06-27T19:15:43+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T19:15:43+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=7 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-06-27T19:15:43+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T19:15:43+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=13 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-06-27T19:15:43+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T19:15:43+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=14 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-06-27T20:55:12+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T20:55:12+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=23 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-06-27T20:55:12+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T20:55:12+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=9 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-06-27T20:55:12+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T20:55:12+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=9 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-06-27T20:55:12+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T20:55:12+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=8 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-06-27T20:55:12+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T20:55:12+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=8 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-06-27T20:55:16+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T20:55:16+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=12 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-06-27T20:55:16+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T20:55:16+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=9 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-06-27T20:55:16+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T20:55:16+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=14 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-06-27T20:55:16+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T20:55:16+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=8 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-06-27T20:55:16+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T20:55:16+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-06-27T20:55:16+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T20:55:16+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=7 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-06-27T21:06:50+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=18 size=232 referer="http://localhost:3000/dashboard/new?editPanel=2&orgId=1"
+t=2025-06-27T21:06:53+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=2 size=232 referer="http://localhost:3000/dashboard/new?editPanel=2&orgId=1"
+t=2025-06-27T21:11:08+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T21:11:08+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=7 size=36 referer="http://localhost:3000/d/qTGOrJLNk/w_o?orgId=1"
+t=2025-06-27T21:12:27+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T21:12:27+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=10 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-06-27T21:12:27+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T21:12:27+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=9 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-06-27T21:12:27+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T21:12:27+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=7 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-06-27T21:12:27+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T21:12:27+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=7 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-06-27T21:12:27+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T21:12:27+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-06-27T21:12:27+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T21:12:27+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-06-27T21:12:31+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=[::1] time_ms=13 size=88 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-06-27T21:12:42+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-06-27T21:12:42+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-06-27T21:18:00+0900 lvl=info msg="Shutdown started" logger=server reason="System signal: terminated"
+t=2025-07-04T10:47:20+0900 lvl=info msg="Starting Grafana" logger=server version=7.5.17 commit=84411794f3 branch=HEAD compiled=2022-09-26T20:11:15+0900
+t=2025-07-04T10:47:20+0900 lvl=info msg="Config loaded from" logger=settings file=C:\\app\\grafana-7.5.17/conf/defaults.ini
+t=2025-07-04T10:47:20+0900 lvl=info msg="Path Home" logger=settings path=C:\\app\\grafana-7.5.17
+t=2025-07-04T10:47:20+0900 lvl=info msg="Path Data" logger=settings path=C:\\app\\grafana-7.5.17\\data
+t=2025-07-04T10:47:20+0900 lvl=info msg="Path Logs" logger=settings path=C:\\app\\grafana-7.5.17\\data\\log
+t=2025-07-04T10:47:20+0900 lvl=info msg="Path Plugins" logger=settings path=C:\\app\\grafana-7.5.17\\data\\plugins
+t=2025-07-04T10:47:20+0900 lvl=info msg="Path Provisioning" logger=settings path=C:\\app\\grafana-7.5.17\\conf\\provisioning
+t=2025-07-04T10:47:20+0900 lvl=info msg="App mode production" logger=settings
+t=2025-07-04T10:47:20+0900 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=postgres
+t=2025-07-04T10:47:20+0900 lvl=info msg="Starting DB migrations" logger=migrator
+t=2025-07-04T10:47:21+0900 lvl=info msg="migrations completed" logger=migrator performed=0 skipped=279 duration=521.3µs
+t=2025-07-04T10:47:21+0900 lvl=info msg="Starting plugin search" logger=plugins
+t=2025-07-04T10:47:21+0900 lvl=info msg="Registering plugin" logger=plugins id=input
+t=2025-07-04T10:47:22+0900 lvl=info msg="HTTP Server Listen" logger=http.server address=[::]:3000 protocol=http subUrl= socket=
+t=2025-07-04T10:48:22+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T10:48:22+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=31 size=36 referer="http://localhost:3000/d/qTGOrJLNk/w_o?orgId=1"
+t=2025-07-04T10:48:26+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T10:48:26+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=14 size=36 referer="http://localhost:3000/d/qTGOrJLNk/w_o?editPanel=2&orgId=1"
+t=2025-07-04T13:26:48+0900 lvl=info msg="Starting Grafana" logger=server version=7.5.17 commit=84411794f3 branch=HEAD compiled=2022-09-26T20:11:15+0900
+t=2025-07-04T13:26:48+0900 lvl=info msg="Config loaded from" logger=settings file=C:\\app\\grafana-7.5.17/conf/defaults.ini
+t=2025-07-04T13:26:48+0900 lvl=info msg="Path Home" logger=settings path=C:\\app\\grafana-7.5.17
+t=2025-07-04T13:26:48+0900 lvl=info msg="Path Data" logger=settings path=C:\\app\\grafana-7.5.17\\data
+t=2025-07-04T13:26:48+0900 lvl=info msg="Path Logs" logger=settings path=C:\\app\\grafana-7.5.17\\data\\log
+t=2025-07-04T13:26:48+0900 lvl=info msg="Path Plugins" logger=settings path=C:\\app\\grafana-7.5.17\\data\\plugins
+t=2025-07-04T13:26:48+0900 lvl=info msg="Path Provisioning" logger=settings path=C:\\app\\grafana-7.5.17\\conf\\provisioning
+t=2025-07-04T13:26:48+0900 lvl=info msg="App mode production" logger=settings
+t=2025-07-04T13:26:48+0900 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=postgres
+t=2025-07-04T13:26:48+0900 lvl=info msg="Starting DB migrations" logger=migrator
+t=2025-07-04T13:26:49+0900 lvl=info msg="migrations completed" logger=migrator performed=0 skipped=279 duration=507.8µs
+t=2025-07-04T13:26:49+0900 lvl=info msg="Starting plugin search" logger=plugins
+t=2025-07-04T13:26:50+0900 lvl=info msg="Registering plugin" logger=plugins id=input
+t=2025-07-04T13:26:50+0900 lvl=info msg="HTTP Server Listen" logger=http.server address=[::]:3000 protocol=http subUrl= socket=
+t=2025-07-04T13:27:59+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T13:27:59+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=11 size=36 referer="http://localhost:3000/d/qTGOrJLNk/w_o?orgId=1"
+t=2025-07-04T13:28:01+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T13:28:01+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=15 size=36 referer="http://localhost:3000/d/qTGOrJLNk/w_o?editPanel=2&orgId=1"
+t=2025-07-04T13:29:09+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T13:29:09+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/d/qTGOrJLNk/w_o?editPanel=2&orgId=1"
+t=2025-07-04T13:29:49+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T13:29:49+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=7 size=36 referer="http://localhost:3000/d/qTGOrJLNk/w_o?editPanel=2&orgId=1"
+t=2025-07-04T13:30:26+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T13:30:26+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/qTGOrJLNk/w_o?editPanel=2&orgId=1"
+t=2025-07-04T13:32:01+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=12 size=34765 referer=
+t=2025-07-04T13:33:34+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=24 size=34765 referer=
+t=2025-07-04T13:33:35+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T13:33:35+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=8 size=36 referer="http://localhost:3000/d/qTGOrJLNk/w_o?orgId=1"
+t=2025-07-04T13:34:07+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=38 size=34765 referer=
+t=2025-07-04T13:35:48+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=6 size=34765 referer=
+t=2025-07-04T13:37:38+0900 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/d/qTGOrJLNk/w_o status=302 remote_addr=[::1] time_ms=0 size=29 referer=
+t=2025-07-04T13:37:47+0900 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/ status=302 remote_addr=[::1] time_ms=0 size=29 referer=
+t=2025-07-04T13:37:59+0900 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/ status=302 remote_addr=[::1] time_ms=0 size=29 referer=
+t=2025-07-04T13:38:22+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=6 size=34765 referer=
+t=2025-07-04T13:38:41+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/favicon.ico status=404 remote_addr=[::1] time_ms=5 size=34765 referer="http://localhost:3000/d/qTGOrJLNk/w_o?orgId=1"
+t=2025-07-04T13:40:13+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=9 size=34765 referer=
+t=2025-07-04T13:42:43+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=6 size=34765 referer=
+t=2025-07-04T13:42:54+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=12 size=34765 referer=
+t=2025-07-04T13:43:15+0900 lvl=info msg="Shutdown started" logger=server reason="System signal: interrupt"
+t=2025-07-04T13:43:20+0900 lvl=info msg="Starting Grafana" logger=server version=7.5.17 commit=84411794f3 branch=HEAD compiled=2022-09-26T20:11:15+0900
+t=2025-07-04T13:43:20+0900 lvl=info msg="Config loaded from" logger=settings file=C:\\app\\grafana-7.5.17/conf/defaults.ini
+t=2025-07-04T13:43:20+0900 lvl=info msg="Path Home" logger=settings path=C:\\app\\grafana-7.5.17
+t=2025-07-04T13:43:20+0900 lvl=info msg="Path Data" logger=settings path=C:\\app\\grafana-7.5.17\\data
+t=2025-07-04T13:43:20+0900 lvl=info msg="Path Logs" logger=settings path=C:\\app\\grafana-7.5.17\\data\\log
+t=2025-07-04T13:43:20+0900 lvl=info msg="Path Plugins" logger=settings path=C:\\app\\grafana-7.5.17\\data\\plugins
+t=2025-07-04T13:43:20+0900 lvl=info msg="Path Provisioning" logger=settings path=C:\\app\\grafana-7.5.17\\conf\\provisioning
+t=2025-07-04T13:43:20+0900 lvl=info msg="App mode production" logger=settings
+t=2025-07-04T13:43:20+0900 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=postgres
+t=2025-07-04T13:43:20+0900 lvl=info msg="Starting DB migrations" logger=migrator
+t=2025-07-04T13:43:20+0900 lvl=info msg="migrations completed" logger=migrator performed=0 skipped=279 duration=515.7µs
+t=2025-07-04T13:43:20+0900 lvl=info msg="Starting plugin search" logger=plugins
+t=2025-07-04T13:43:20+0900 lvl=info msg="Registering plugin" logger=plugins id=input
+t=2025-07-04T13:43:20+0900 lvl=info msg="HTTP Server Listen" logger=http.server address=[::]:3000 protocol=http subUrl= socket=
+t=2025-07-04T13:43:28+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=35 size=34765 referer=
+t=2025-07-04T13:43:41+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=11 size=34765 referer=
+t=2025-07-04T14:05:50+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=12 size=34765 referer=
+t=2025-07-04T14:06:43+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/favicon.ico status=404 remote_addr=[::1] time_ms=5 size=34765 referer="http://localhost:3000/d/qTGOrJLNk/w_o?orgId=1"
+t=2025-07-04T14:06:59+0900 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/d/qTGOrJLNk/w_o status=302 remote_addr=[::1] time_ms=0 size=29 referer=
+t=2025-07-04T14:07:07+0900 lvl=info msg="Successful Login" logger=http.server User=admin@localhost
+t=2025-07-04T14:08:46+0900 lvl=info msg="Shutdown started" logger=server reason="System signal: interrupt"
+t=2025-07-04T14:08:53+0900 lvl=info msg="Starting Grafana" logger=server version=7.5.17 commit=84411794f3 branch=HEAD compiled=2022-09-26T20:11:15+0900
+t=2025-07-04T14:08:53+0900 lvl=info msg="Config loaded from" logger=settings file=C:\\app\\grafana-7.5.17/conf/defaults.ini
+t=2025-07-04T14:08:53+0900 lvl=info msg="Path Home" logger=settings path=C:\\app\\grafana-7.5.17
+t=2025-07-04T14:08:53+0900 lvl=info msg="Path Data" logger=settings path=C:\\app\\grafana-7.5.17\\data
+t=2025-07-04T14:08:53+0900 lvl=info msg="Path Logs" logger=settings path=C:\\app\\grafana-7.5.17\\data\\log
+t=2025-07-04T14:08:53+0900 lvl=info msg="Path Plugins" logger=settings path=C:\\app\\grafana-7.5.17\\data\\plugins
+t=2025-07-04T14:08:53+0900 lvl=info msg="Path Provisioning" logger=settings path=C:\\app\\grafana-7.5.17\\conf\\provisioning
+t=2025-07-04T14:08:53+0900 lvl=info msg="App mode production" logger=settings
+t=2025-07-04T14:08:53+0900 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=postgres
+t=2025-07-04T14:08:53+0900 lvl=info msg="Starting DB migrations" logger=migrator
+t=2025-07-04T14:08:53+0900 lvl=info msg="migrations completed" logger=migrator performed=0 skipped=279 duration=0s
+t=2025-07-04T14:08:53+0900 lvl=info msg="Starting plugin search" logger=plugins
+t=2025-07-04T14:08:54+0900 lvl=info msg="Registering plugin" logger=plugins id=input
+t=2025-07-04T14:08:54+0900 lvl=info msg="HTTP Server Listen" logger=http.server address=[::]:3000 protocol=http subUrl= socket=
+t=2025-07-04T14:09:11+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=16 size=34854 referer=
+t=2025-07-04T14:09:28+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/dashboards/db/ status=412 remote_addr=[::1] time_ms=11 size=88 referer="http://localhost:3000/d/qTGOrJLNk/w_o?orgId=1"
+t=2025-07-04T14:09:39+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=63 size=34854 referer=
+t=2025-07-04T14:23:31+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:23:31+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-07-04T14:23:31+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:23:31+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-07-04T14:23:31+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:23:31+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=9 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-07-04T14:23:31+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:23:31+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-07-04T14:23:31+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:23:31+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-07-04T14:24:15+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:24:15+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-07-04T14:24:15+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:24:15+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-07-04T14:24:15+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:24:15+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-07-04T14:24:15+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:24:15+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-07-04T14:24:15+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:24:15+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=7 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-07-04T14:24:56+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:24:56+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=9 size=36 referer="http://localhost:3000/d/2Nk2I3LNk/match_list?orgId=1"
+t=2025-07-04T14:25:10+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:25:10+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/4KD6XJLHz/plant?orgId=1"
+t=2025-07-04T14:25:10+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:25:10+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/4KD6XJLHz/plant?orgId=1"
+t=2025-07-04T14:25:10+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:25:10+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=36 referer="http://localhost:3000/d/4KD6XJLHz/plant?orgId=1"
+t=2025-07-04T14:25:10+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:25:10+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=36 referer="http://localhost:3000/d/4KD6XJLHz/plant?orgId=1"
+t=2025-07-04T14:25:10+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:25:10+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=36 referer="http://localhost:3000/d/4KD6XJLHz/plant?orgId=1"
+t=2025-07-04T14:25:12+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:25:12+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/it7I1YEHk/search_text?orgId=1"
+t=2025-07-04T14:25:31+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:25:31+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/W9aqw_ENz/user?orgId=1"
+t=2025-07-04T14:25:35+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:25:35+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=4 size=36 referer="http://localhost:3000/d/OcHbLLPHk/naljja?orgId=1"
+t=2025-07-04T14:25:35+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-04T14:25:35+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=3 size=36 referer="http://localhost:3000/d/OcHbLLPHk/naljja?orgId=1"
+t=2025-07-04T14:29:18+0900 lvl=eror msg="Error writing to response" logger=context userId=1 orgId=1 uname=admin err="write tcp [::1]:3000->[::1]:62131: wsasend: An established connection was aborted by the software in your host machine."
+t=2025-07-04T14:49:26+0900 lvl=info msg="Shutdown started" logger=server reason="System signal: interrupt"
+t=2025-07-04T17:07:28+0900 lvl=info msg="Starting Grafana" logger=server version=7.5.17 commit=84411794f3 branch=HEAD compiled=2022-09-26T20:11:15+0900
+t=2025-07-04T17:07:28+0900 lvl=info msg="Config loaded from" logger=settings file=C:\\app\\grafana-7.5.17/conf/defaults.ini
+t=2025-07-04T17:07:28+0900 lvl=info msg="Path Home" logger=settings path=C:\\app\\grafana-7.5.17
+t=2025-07-04T17:07:28+0900 lvl=info msg="Path Data" logger=settings path=C:\\app\\grafana-7.5.17\\data
+t=2025-07-04T17:07:28+0900 lvl=info msg="Path Logs" logger=settings path=C:\\app\\grafana-7.5.17\\data\\log
+t=2025-07-04T17:07:28+0900 lvl=info msg="Path Plugins" logger=settings path=C:\\app\\grafana-7.5.17\\data\\plugins
+t=2025-07-04T17:07:28+0900 lvl=info msg="Path Provisioning" logger=settings path=C:\\app\\grafana-7.5.17\\conf\\provisioning
+t=2025-07-04T17:07:28+0900 lvl=info msg="App mode production" logger=settings
+t=2025-07-04T17:07:28+0900 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=postgres
+t=2025-07-04T17:07:28+0900 lvl=info msg="Starting DB migrations" logger=migrator
+t=2025-07-04T17:07:29+0900 lvl=info msg="migrations completed" logger=migrator performed=0 skipped=279 duration=519µs
+t=2025-07-04T17:07:29+0900 lvl=info msg="Starting plugin search" logger=plugins
+t=2025-07-04T17:07:29+0900 lvl=info msg="Registering plugin" logger=plugins id=input
+t=2025-07-04T17:07:29+0900 lvl=info msg="HTTP Server Listen" logger=http.server address=[::]:3000 protocol=http subUrl= socket=
+t=2025-07-04T17:27:50+0900 lvl=info msg="Shutdown started" logger=server reason="System signal: interrupt"
+t=2025-07-05T01:31:31+0900 lvl=info msg="Starting Grafana" logger=server version=7.5.17 commit=84411794f3 branch=HEAD compiled=2022-09-26T20:11:15+0900
+t=2025-07-05T01:31:31+0900 lvl=info msg="Config loaded from" logger=settings file=C:\\app\\grafana-7.5.17/conf/defaults.ini
+t=2025-07-05T01:31:31+0900 lvl=info msg="Path Home" logger=settings path=C:\\app\\grafana-7.5.17
+t=2025-07-05T01:31:31+0900 lvl=info msg="Path Data" logger=settings path=C:\\app\\grafana-7.5.17\\data
+t=2025-07-05T01:31:31+0900 lvl=info msg="Path Logs" logger=settings path=C:\\app\\grafana-7.5.17\\data\\log
+t=2025-07-05T01:31:31+0900 lvl=info msg="Path Plugins" logger=settings path=C:\\app\\grafana-7.5.17\\data\\plugins
+t=2025-07-05T01:31:31+0900 lvl=info msg="Path Provisioning" logger=settings path=C:\\app\\grafana-7.5.17\\conf\\provisioning
+t=2025-07-05T01:31:31+0900 lvl=info msg="App mode production" logger=settings
+t=2025-07-05T01:31:31+0900 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=postgres
+t=2025-07-05T01:31:31+0900 lvl=info msg="Starting DB migrations" logger=migrator
+t=2025-07-05T01:31:31+0900 lvl=info msg="migrations completed" logger=migrator performed=0 skipped=279 duration=522µs
+t=2025-07-05T01:31:31+0900 lvl=info msg="Starting plugin search" logger=plugins
+t=2025-07-05T01:31:32+0900 lvl=info msg="Registering plugin" logger=plugins id=input
+t=2025-07-05T01:31:33+0900 lvl=info msg="HTTP Server Listen" logger=http.server address=[::]:3000 protocol=http subUrl= socket=
+t=2025-07-05T01:40:21+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=11 size=34854 referer=
+t=2025-07-05T01:57:47+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=9 size=34854 referer=
+t=2025-07-05T02:11:37+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-05T02:11:37+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=7 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-07-05T02:11:37+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-05T02:11:37+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-07-05T02:11:37+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-05T02:11:37+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-07-05T02:11:37+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-05T02:11:37+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-07-05T02:11:37+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-05T02:11:37+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?orgId=1"
+t=2025-07-05T02:11:40+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-05T02:11:40+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=38 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-07-05T02:11:40+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-05T02:11:40+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=19 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-07-05T02:11:40+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-05T02:11:40+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=12 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-07-05T02:11:40+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-05T02:11:40+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=9 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-07-05T02:11:40+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-05T02:11:40+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-07-05T02:11:40+0900 lvl=eror msg="Invalid data source ID" logger=context userId=1 orgId=1 uname=admin error="data source not found" remote_addr=[::1]
+t=2025-07-05T02:11:40+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=6 size=36 referer="http://localhost:3000/d/67vOs_YHk/cctv_wo_screen?editPanel=2&orgId=1"
+t=2025-07-05T02:20:35+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=10 size=961 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?viewPanel=2&orgId=1"
+t=2025-07-05T02:20:50+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=12 size=994 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?viewPanel=2&orgId=1"
+t=2025-07-05T02:20:55+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=5 size=991 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?viewPanel=2&orgId=1"
+t=2025-07-05T02:21:18+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/tsdb/query status=400 remote_addr=[::1] time_ms=18 size=979 referer="http://localhost:3000/d/9s17ylYHz/cctv_screen?viewPanel=2&orgId=1"
+t=2025-07-05T02:33:30+0900 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/d/9s17ylYHz/cctv_screen status=302 remote_addr=[::1] time_ms=0 size=29 referer=
+t=2025-07-05T02:33:39+0900 lvl=info msg="Successful Login" logger=http.server User=admin@localhost
+t=2025-07-05T02:33:57+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=8 size=34854 referer=
+t=2025-07-05T02:36:01+0900 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/.well-known/appspecific/com.chrome.devtools.json status=404 remote_addr=[::1] time_ms=26 size=34854 referer=
+t=2025-07-05T10:31:32+0900 lvl=info msg="Starting Grafana" logger=server version=7.5.17 commit=84411794f3 branch=HEAD compiled=2022-09-26T20:11:15+0900
+t=2025-07-05T10:31:32+0900 lvl=info msg="Config loaded from" logger=settings file=C:\\app\\grafana-7.5.17/conf/defaults.ini
+t=2025-07-05T10:31:32+0900 lvl=info msg="Path Home" logger=settings path=C:\\app\\grafana-7.5.17
+t=2025-07-05T10:31:32+0900 lvl=info msg="Path Data" logger=settings path=C:\\app\\grafana-7.5.17\\data
+t=2025-07-05T10:31:32+0900 lvl=info msg="Path Logs" logger=settings path=C:\\app\\grafana-7.5.17\\data\\log
+t=2025-07-05T10:31:32+0900 lvl=info msg="Path Plugins" logger=settings path=C:\\app\\grafana-7.5.17\\data\\plugins
+t=2025-07-05T10:31:32+0900 lvl=info msg="Path Provisioning" logger=settings path=C:\\app\\grafana-7.5.17\\conf\\provisioning
+t=2025-07-05T10:31:32+0900 lvl=info msg="App mode production" logger=settings
+t=2025-07-05T10:31:32+0900 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=postgres
+t=2025-07-05T10:31:32+0900 lvl=info msg="Starting DB migrations" logger=migrator
+t=2025-07-05T10:31:32+0900 lvl=info msg="migrations completed" logger=migrator performed=0 skipped=279 duration=528.9µs
+t=2025-07-05T10:31:32+0900 lvl=info msg="Starting plugin search" logger=plugins
+t=2025-07-05T10:31:33+0900 lvl=info msg="Registering plugin" logger=plugins id=input
+t=2025-07-05T10:31:33+0900 lvl=info msg="HTTP Server Listen" logger=http.server address=[::]:3000 protocol=http subUrl= socket=

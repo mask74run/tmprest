@@ -1,0 +1,31 @@
+.panel-container--no-title .panel-title {
+  display: none!important;
+}
+.panel-content:has(.markdown-html) {
+  padding: 0!important;
+}
+.panel-content:has(.markdown-html) .track-horizontal,
+.panel-content:has(.markdown-html) .thumb-horizontal,
+.panel-content:has(.markdown-html) .track-vertical,
+.panel-content:has(.markdown-html) .thumb-vertical {
+  display: none!important;
+}
+.ui.header.top_menu {
+  margin: 0!important;
+  padding: 4px 0px 0px 4px;
+}
+.markdown-html table,
+.markdown-html td,
+.markdown-html th {
+  border: unset;
+  border-collapse: unset;
+}
+.no_mg {
+  margin: 0!important;
+}
+.no_pd {
+  padding: 0!important;
+}
+.no_bd {
+  border: none!important;
+}
