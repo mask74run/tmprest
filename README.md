@@ -19,5 +19,5 @@
 
 # B. grafana 종료하는방법
 
-  1. 실행 중인 grafana server 에서 "ctrl + c" 명령어를 입력한다.
+  1. 실행 중인 grafana server 에서 "ctrl + c" 명령어를 입력한다.</br>
      ->  수행중인 grafana 종료됨
