@@ -2,30 +2,30 @@
 
 -- Drop table
 
--- DROP TABLE plant_info;
+-- DROP TABLE itsm.plant_info;
 
-CREATE TABLE plant_info (
-	id numeric NOT NULL -- key_,
-	eq_code varchar(100) NOT NULL -- 설비코드_Equipment code,
-	gubun varchar(100) NULL -- 구분(TYPE)_gubun type,
-	setup_dt timestamptz NOT NULL -- 설치일_setup Date,
-	fac_cd varchar(100) NOT NULL -- 공장_factory CD,
-	setup_place varchar(3000) NOT NULL -- 설치장소_Setup Place,
-	spec varchar(3000) NULL -- 규격_specification,
-	model varchar(100) NULL -- 모델_Model,
-	maker varchar(1000) NULL -- 메이커_Maker,
-	ip_addr varchar(100) NULL -- IP_IP address,
-	com_port varchar(10) NULL -- PORT_Com Port,
-	rgb varchar(1000) NULL -- RGB_RGB,
-	noti text NULL -- 특성_Notification,
-	qr_cd text NULL -- QR CODE_Quick-Response Code,
-	pre_chk_dt timestamptz NULL -- 예방조치일_Prevention Check Date,
-	effec_dt timestamptz NULL -- 조치일자_effective date,
-	flag varchar(1) NOT NULL -- 사용여부_,
-	fst_reg_user_id varchar(50) NULL -- 등록자_,
-	fst_reg_dttm timestamptz NULL -- 등록일_,
-	last_reg_user_id varchar(50) NULL -- 최종 수정자_,
-	last_mod_dttm timestamptz NULL -- 최종 수정일_,
+CREATE TABLE itsm.plant_info (
+	id numeric NOT NULL, -- key_
+	eq_code varchar(100) NOT NULL, -- 설비코드_Equipment code
+	gubun varchar(100) NULL, -- 구분(TYPE)_gubun type
+	setup_dt timestamptz NOT NULL, -- 설치일_setup Date
+	fac_cd varchar(100) NOT NULL, -- 공장_factory CD
+	setup_place varchar(3000) NOT NULL, -- 설치장소_Setup Place
+	spec varchar(3000) NULL, -- 규격_specification
+	model varchar(100) NULL, -- 모델_Model
+	maker varchar(1000) NULL, -- 메이커_Maker
+	ip_addr varchar(100) NULL, -- IP_IP address
+	com_port varchar(10) NULL, -- PORT_Com Port
+	rgb varchar(1000) NULL, -- RGB_RGB
+	noti text NULL, -- 특성_Notification
+	qr_cd text NULL, -- QR CODE_Quick-Response Code
+	pre_chk_dt timestamptz NULL, -- 예방조치일_Prevention Check Date
+	effec_dt timestamptz NULL, -- 조치일자_effective date
+	flag varchar(1) NOT NULL, -- 사용여부_
+	fst_reg_user_id varchar(50) NULL, -- 등록자_
+	fst_reg_dttm timestamptz NULL, -- 등록일_
+	last_reg_user_id varchar(50) NULL, -- 최종 수정자_
+	last_mod_dttm timestamptz NULL, -- 최종 수정일_
 	CONSTRAINT pk_plant_info PRIMARY KEY (id)
 );
 CREATE INDEX ix_plant_info_01 ON itsm.plant_info USING btree (eq_code, gubun, fac_cd);
@@ -57,8 +57,8 @@ COMMENT ON COLUMN itsm.plant_info.last_mod_dttm IS '최종 수정일_';
 
 -- Permissions
 
-ALTER TABLE plant_info OWNER TO itsm;
-GRANT ALL ON TABLE plant_info TO itsm;
-GRANT UPDATE, INSERT, SELECT, DELETE ON TABLE plant_info TO itsmapp;
-GRANT UPDATE, INSERT, SELECT, DELETE ON TABLE plant_info TO rl_gitsm_all;
-GRANT SELECT ON TABLE plant_info TO rl_gitsm_sel;
+ALTER TABLE itsm.plant_info OWNER TO itsm;
+GRANT ALL ON TABLE itsm.plant_info TO itsm;
+GRANT SELECT, UPDATE, DELETE, INSERT ON TABLE itsm.plant_info TO itsmapp;
+GRANT SELECT, UPDATE, DELETE, INSERT ON TABLE itsm.plant_info TO rl_gitsm_all;
+GRANT SELECT ON TABLE itsm.plant_info TO rl_gitsm_sel;

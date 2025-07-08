@@ -2,34 +2,34 @@
 
 -- Drop table
 
--- DROP TABLE work_order;
+-- DROP TABLE itsm.work_order;
 
-CREATE TABLE work_order (
-	id numeric NOT NULL -- key_key,
-	work_order varchar NOT NULL -- work order_work order,
-	eq_code varchar(100) NOT NULL -- 설비코드_Equipment code,
-	write_nm varchar NULL -- 작성자_write Name,
-	write_dt timestamptz NULL -- 작성일자_write Date,
-	confirm_nm varchar NULL -- 확인자_confirm name,
-	confirm_dt timestamptz NULL -- 확인일자_confirm date,
-	company_nm varchar NULL -- 회사명_company name,
-	review_nm varchar NULL -- 검토자_review name,
-	review_dt timestamptz NULL -- 검토일자_review date,
-	utility_p1 varchar NULL -- 필요보호구_need utility1,
-	appro_nm varchar NULL -- 승인자_approve name,
-	appro_dt timestamptz NULL -- 승인일자_approve date,
-	utility_p2 varchar NULL -- 필요장비/공구_need utility2,
-	resource_man varchar NULL -- 투입인원_need persons,
-	work_seq varchar NULL -- 순번_work seq,
-	pre_stage varchar NULL -- 준비단계_pre stage,
-	work_dt timestamptz NULL -- 작업일시_work date,
-	work_stats varchar NULL -- 작업종료_work stats,
-	signature varchar NULL -- 서명_signature,
-	flag varchar(1) NOT NULL -- 사용여부_flag,
-	fst_reg_user_id varchar(50) NULL -- 등록자_fst_reg_user_id,
-	fst_reg_dttm timestamptz NULL -- 등록일_fst_reg_dttm,
-	last_reg_user_id varchar(50) NULL -- 최종 수정자_last_reg_user_id,
-	last_mod_dttm timestamptz NULL -- 최종 수정일_last_mod_dttm,
+CREATE TABLE itsm.work_order (
+	id numeric NOT NULL, -- key_key
+	work_order varchar NOT NULL, -- work order_work order
+	eq_code varchar(100) NOT NULL, -- 설비코드_Equipment code
+	write_nm varchar NULL, -- 작성자_write Name
+	write_dt timestamptz NULL, -- 작성일자_write Date
+	confirm_nm varchar NULL, -- 확인자_confirm name
+	confirm_dt timestamptz NULL, -- 확인일자_confirm date
+	company_nm varchar NULL, -- 회사명_company name
+	review_nm varchar NULL, -- 검토자_review name
+	review_dt timestamptz NULL, -- 검토일자_review date
+	utility_p1 varchar NULL, -- 필요보호구_need utility1
+	appro_nm varchar NULL, -- 승인자_approve name
+	appro_dt timestamptz NULL, -- 승인일자_approve date
+	utility_p2 varchar NULL, -- 필요장비/공구_need utility2
+	resource_man varchar NULL, -- 투입인원_need persons
+	work_seq varchar NULL, -- 순번_work seq
+	pre_stage varchar NULL, -- 준비단계_pre stage
+	work_dt timestamptz NULL, -- 작업일시_work date
+	work_stats varchar NULL, -- 작업종료_work stats
+	signature varchar NULL, -- 서명_signature
+	flag varchar(1) NOT NULL, -- 사용여부_flag
+	fst_reg_user_id varchar(50) NULL, -- 등록자_fst_reg_user_id
+	fst_reg_dttm timestamptz NULL, -- 등록일_fst_reg_dttm
+	last_reg_user_id varchar(50) NULL, -- 최종 수정자_last_reg_user_id
+	last_mod_dttm timestamptz NULL, -- 최종 수정일_last_mod_dttm
 	CONSTRAINT pk_work_order PRIMARY KEY (id)
 );
 CREATE INDEX ix_work_order_01 ON itsm.work_order USING btree (eq_code, work_order);
@@ -65,8 +65,8 @@ COMMENT ON COLUMN itsm.work_order.last_mod_dttm IS '최종 수정일_last_mod_dt
 
 -- Permissions
 
-ALTER TABLE work_order OWNER TO itsm;
-GRANT ALL ON TABLE work_order TO itsm;
-GRANT UPDATE, INSERT, SELECT, DELETE ON TABLE work_order TO itsmapp;
-GRANT UPDATE, INSERT, SELECT, DELETE ON TABLE work_order TO rl_gitsm_all;
-GRANT SELECT ON TABLE work_order TO rl_gitsm_sel;
+ALTER TABLE itsm.work_order OWNER TO itsm;
+GRANT ALL ON TABLE itsm.work_order TO itsm;
+GRANT SELECT, UPDATE, DELETE, INSERT ON TABLE itsm.work_order TO itsmapp;
+GRANT SELECT, UPDATE, DELETE, INSERT ON TABLE itsm.work_order TO rl_gitsm_all;
+GRANT SELECT ON TABLE itsm.work_order TO rl_gitsm_sel;

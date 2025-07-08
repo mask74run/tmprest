@@ -2,20 +2,20 @@
 
 -- Drop table
 
--- DROP TABLE plant_match_jsa;
+-- DROP TABLE itsm.plant_match_jsa;
 
-CREATE TABLE plant_match_jsa (
-	id numeric NOT NULL -- id_key,
-	eq_code varchar NOT NULL -- 설비코드_Equipment code,
-	plant_id numeric NOT NULL -- 설비코드 key_설비코드 key,
-	seq numeric NOT NULL -- 순번_match seq ,
-	jsa_id numeric NOT NULL -- key_key,
-	jsa_code varchar NOT NULL -- 기준 CODE(jsa code)_JSA_CODE,
-	stats_cd varchar NOT NULL -- stats_cd_stats_cd,
-	fst_reg_user_id varchar(50) NULL -- 등록자_fst_reg_user_id,
-	fst_reg_dttm timestamptz NULL -- 등록일_fst_reg_dttm,
-	last_reg_user_id varchar(50) NULL -- 최종 수정자_last_reg_user_id,
-	last_mod_dttm timestamptz NULL -- 최종 수정일_last_mod_dttm,
+CREATE TABLE itsm.plant_match_jsa (
+	id numeric NOT NULL, -- id_key
+	eq_code varchar NOT NULL, -- 설비코드_Equipment code
+	plant_id numeric NOT NULL, -- 설비코드 key_설비코드 key
+	seq numeric NOT NULL, -- 순번_match seq 
+	jsa_id numeric NOT NULL, -- key_key
+	jsa_code varchar NOT NULL, -- 기준 CODE(jsa code)_JSA_CODE
+	stats_cd varchar NOT NULL, -- stats_cd_stats_cd
+	fst_reg_user_id varchar(50) NULL, -- 등록자_fst_reg_user_id
+	fst_reg_dttm timestamptz NULL, -- 등록일_fst_reg_dttm
+	last_reg_user_id varchar(50) NULL, -- 최종 수정자_last_reg_user_id
+	last_mod_dttm timestamptz NULL, -- 최종 수정일_last_mod_dttm
 	CONSTRAINT pk_plant_match_jsa PRIMARY KEY (id)
 );
 CREATE INDEX ix_plant_match_jsa_01 ON itsm.plant_match_jsa USING btree (eq_code, stats_cd);
@@ -37,8 +37,8 @@ COMMENT ON COLUMN itsm.plant_match_jsa.last_mod_dttm IS '최종 수정일_last_m
 
 -- Permissions
 
-ALTER TABLE plant_match_jsa OWNER TO itsm;
-GRANT ALL ON TABLE plant_match_jsa TO itsm;
-GRANT UPDATE, INSERT, SELECT, DELETE ON TABLE plant_match_jsa TO itsmapp;
-GRANT UPDATE, INSERT, SELECT, DELETE ON TABLE plant_match_jsa TO rl_gitsm_all;
-GRANT SELECT ON TABLE plant_match_jsa TO rl_gitsm_sel;
+ALTER TABLE itsm.plant_match_jsa OWNER TO itsm;
+GRANT ALL ON TABLE itsm.plant_match_jsa TO itsm;
+GRANT SELECT, UPDATE, DELETE, INSERT ON TABLE itsm.plant_match_jsa TO itsmapp;
+GRANT SELECT, UPDATE, DELETE, INSERT ON TABLE itsm.plant_match_jsa TO rl_gitsm_all;
+GRANT SELECT ON TABLE itsm.plant_match_jsa TO rl_gitsm_sel;
