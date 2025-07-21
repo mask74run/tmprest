@@ -16,7 +16,34 @@
 .ui.large.label{background-color:inherit!important;color:black!important;text-shadow:none}
 </style>
 
+<script src="public/custom/xlsx.full.min.js"></script>
+<script src="public/custom/FileSaver.min.js"></script>
 <script>
+function s2ab(s) { 
+    var buf = new ArrayBuffer(s.length); //convert s to arrayBuffer
+    var view = new Uint8Array(buf);  //create uint8array as viewer
+    for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF; //convert to octet
+    return buf;    
+}
+
+function exportExcel(exptblid, expsheetname, savefilename){ 
+    // step 1. workbook 생성
+    var wb = XLSX.utils.book_new();
+
+    // step 2. 시트 만들기 
+    // var newWorksheet = excelHandler.getWorksheet();
+    var newWorksheet = XLSX.utils.table_to_sheet(document.getElementById(exptblid));
+    
+    // step 3. workbook에 새로만든 워크시트에 이름을 주고 붙인다.  
+    XLSX.utils.book_append_sheet(wb, newWorksheet, expsheetname);
+
+    // step 4. 엑셀 파일 만들기 
+    var wbout = XLSX.write(wb, {bookType:'xlsx',  type: 'binary'});
+
+    // step 5. 엑셀 파일 내보내기 
+    saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), savefilename);
+}
+
 var today = new Date();
 var tomorrow = new Date();
 tomorrow.setDate(today.getDate() + 1);
@@ -101,7 +128,7 @@ var tm = new Date().toTimeString().split(' ')[0].substr(0,5);
                 <th class="center aligned">예방조치일</th>
                 <th class="center aligned">조치일자</th>
                 <th class="center aligned">JSA</th>
-                <!-- <th class="center aligned">Excel</th> -->
+                <th class="center aligned">Excel</th>
               </tr>
             </thead>
             <tbody id="resource_body"></tbody>
@@ -123,7 +150,7 @@ var tm = new Date().toTimeString().split(' ')[0].substr(0,5);
   </div>
 <!-- end  -->
 </div>
-<!-- div class="ui basic segment no_mg no_pd h_100" style="overflow:auto" -->     
+
 <div class="ui match modal" style="margin:auto;" >
   <div class="ui segment no_mg" style="height:800px">
     <h3 class="ui header">
@@ -150,14 +177,6 @@ var tm = new Date().toTimeString().split(' ')[0].substr(0,5);
     </div>
   </div>
 </div>
-
-<!-- <div class="ui print modal" style="margin:auto;" >
-  <div class="ui segment no_mg1" style="height:800px">
-    <div class="ui basic segment no_mg no_pd1" style="width:100%;height:calc(100% - 96px)">
-      <div id="modal_print_table" class="ui bottom attached segment no_mg" style="height:calc(100% - 84px);width: calc(100% - 26px);"></div>
-    </div>
-  </div>
-</div> -->
 
 <script>
 let mpre_chk_dt = document.getElementById("pre_chk_dt");
@@ -305,7 +324,8 @@ async function fn_grid_resource() {
       <td class="center aligned">${obj[13]}</td>
       <td class="center aligned">${obj[14]}</td>
       <td class="center aligned">${obj[15]}</td>
-      <td class="center aligned no_pd"><button class="ui button teal no_mg" style="padding:8px 10px!important" onclick="jsa_match_on(${obj[0]})">Match</button></td>`
+      <td class="center aligned no_pd"><button class="ui button teal no_mg" style="padding:8px 10px!important" onclick="jsa_match_on(${obj[0]})">Match</button></td>
+      <td class="center aligned no_pd"><button class="ui button teal no_mg" style="padding:8px 10px!important" onclick="export_excel_on(${obj[0]})">Excel</button></td>`
       option += `</tr>`
     tbody.append(option)
   })
@@ -719,6 +739,7 @@ async function fn_resource_mod(e) {
     <button id="account_update_btn" class="ui brown button">수정</button>
     <button class="ui button" onclick="fn_resource_grid()">취소</button>
   </form>`;
+
   ag.html(option);
 
   // 업데이트 버튼 클릭 시
@@ -911,15 +932,6 @@ async function jsa_match_on(plan_id) {
         `);
   });
 
-//   if (modal_user_data.length ==0)
-//   {
-//     mt.append(`
-//       <tr>
-//         <td class="center aligned" style="white-space: nowrap; overflow: hidden" colspan="6"> 등록 및 사용가능한 JSA Code가  존재하지 않습니다.!</td>
-//       </tr>
-//     `);
-//   }
-
   $('.ui.match.modal')
     .modal({
       closable  : false,
@@ -927,7 +939,7 @@ async function jsa_match_on(plan_id) {
         return;
       },
       onApprove :  function() {
-        fn_call_modal($plan_id, 'pmu', 'msl');
+        fn_call_modal(plan_id, 'pmu', 'msl');
       }
     })
     .modal('show')
@@ -939,45 +951,77 @@ async function jsa_match_on(plan_id) {
   }
 
   async function fn_update_match(plan_id, pmu, msl) {
-    alert(users.length);
-    alert("--" + plan_id);
-    users.forEach(async function(obj) {
-        alert("aa"+obj);
-    });
-    // let sql = ` UPDATE CLARM.CLARM_TERRAFORM_MATCH 
-    //       SET STATS_CD ='K' , LAST_REQ_DTTM = CURRENT_TIMESTAMP
-    //     WHERE ORG_NM ='${mmu}' AND STATS_CD = 'C'
+    // alert(users.length);
+    // alert("--" + plan_id);
+    // users.forEach(async function(obj) {
+    //     alert("aa"+obj);
+    // });
+
+    // let sql = ` UPDATE ITSM.PLANT_MATCH_JSA
+    //       SET STATS_CD ='K' , LAST_MOD_DTTM = CURRENT_TIMESTAMP
+    //     WHERE PLANT_ID ='${plan_id}' AND STATS_CD = 'C'
     //    `;
+    // alert (sql);
     // let mod_status_data = await get_data(1, sql);
-    // // 체크 된 사용자를 루핑돌며 UPSERT
-    // if(users.length > 0) {
-    //   users.forEach(async function(obj) {
-    //     sql = `
-    // INSERT INTO CLARM.CLARM_TERRAFORM_MATCH (
-    //         ID,
-    //         ORG_NM,
-    //         RULE_ID,
-    //         STATS_CD,
-    //         FST_REQ_USER_ID,
-    //         FST_REQ_DTTM,
-    //         LAST_REQ_USER_ID,
-    //         LAST_REQ_DTTM
-    //         )
-    // VALUES (
-    //         nextval('clarm_terraform_match_seq01')
-    //         , '${mmu}'
-    //         , '${obj}'
-    //         , 'C'
-    //         , '${__user.login}'
-    //         , CURRENT_TIMESTAMP
-    //         , '${__user.login}'
-    //         , CURRENT_TIMESTAMP
-    //         )
-    //     `;
-        
-    //     mod_status_data = await get_data(1, sql);
-    //     if(mod_status_data instanceof Error){console.error("에러 발생: " + mod_status_data.message);return};
-    //   });
+    // 체크 된 사용자를 루핑돌며 UPSERT
+    if(users.length > 0) {
+      users.forEach(async function(obj) {
+      let sql = ` UPDATE ITSM.PLANT_MATCH_JSA
+            SET STATS_CD ='C' 
+               , LAST_REG_USER_ID = '${__user.login}'
+               , LAST_MOD_DTTM    = CURRENT_TIMESTAMP
+          WHERE PLANT_ID ='${plan_id}' AND JSA_ID = '${obj}'
+          RETURNING *
+        `;
+      let mod_status_data = await get_data(1, sql);
+/*
+      alert("ssss");
+      alert (mod_status_data);
+      alert (typeof mod_status_data);
+      alert (mod_status_data.toString());
+      alert (`The object is: ${mod_status_data}`);
+      alert (JSON.stringify(mod_status_data));
+      alert ("========");
+
+      alert (`mod_status_data.length: ${mod_status_data.length}`);
+      alert (`JSON.stringify(mod_status_data).length: ${JSON.stringify(mod_status_data).length}`);
+*/
+      if(mod_status_data instanceof Error){console.error("에러 발생: " + mod_status_data.message);return};
+
+      // update 후 값이 있으면 skip 
+      if (mod_status_data.length <= 0 )
+      {
+        sql = `
+          INSERT 	into ITSM.PLANT_MATCH_JSA (
+              ID,
+              EQ_CODE,
+              PLANT_ID,
+              SEQ,
+              JSA_ID,
+              JSA_CODE,
+              STATS_CD,
+              FST_REG_USER_ID,
+              FST_REG_DTTM,
+              LAST_REG_USER_ID,
+              LAST_MOD_DTTM)
+          VALUES (
+                  nextval('sq_itsm_plant_match_jsa_01')
+                  , (select eq_code from plant_info where id = '${plan_id}')
+                  , '${plan_id}'
+                  , COALESCE((SELECT MAX(SEQ) FROM ITSM.PLANT_MATCH_JSA WHERE PLANT_ID = ${plan_id} AND JSA_ID = ${obj}), 0) + 1
+                  , '${obj}'
+                  , (select jsa_code from jsa_rule where id = '${obj}')
+                  , 'C'
+                  , '${__user.login}'
+                  , CURRENT_TIMESTAMP
+                  , '${__user.login}'
+                  , CURRENT_TIMESTAMP
+                  )
+            `;        
+        mod_status_data = await get_data(1, sql);
+        if(mod_status_data instanceof Error){console.error("에러 발생: " + mod_status_data.message);return};
+      }
+    });
 
     //   /* db  등록후 BackEnd Service call */
     //   let p_sql = `
@@ -990,8 +1034,8 @@ async function jsa_match_on(plan_id) {
     //             `
     //   let gv_appdata = await get_data(1, p_sql);
     //   alert("Status : "+gv_appdata[0]+"\nData : "+gv_appdata[1]+"\n[서비스 호출 처리가 완료 되었습니다.]");
-    // }
-  } // end func
+    } // users.length 체크 된 사용자를 루핑돌며 UPSERT
+  } // end func fn_update_match
 
   /* ##### 체크 박스 핸들러 ##### */
   // 체크박스 상태 변경 시 이벤트 핸들러
@@ -1011,4 +1055,305 @@ async function jsa_match_on(plan_id) {
   /* ##### 체크 박스 핸들러 ##### */
 } // end async function jsa_match_on
 /* ########## Match 테이블 조회 함수 끝   ########## */
+/* ########## export 테이블 조회 함수 시작   ########## */
+async function export_excel_on(plan_id) {
+  
+  let mtitle = "설비코드 & Match JSA Match";  
+  // $('#m_org_nm').val("p_org_nm");
+  // $('#modal_sns_arn').html(mtitle); // 모달 헤더 추가 modal_table modal_print_table
+  $('#modal_table').html(`
+  <div class="ui basic segment no_mg no_pd h_100" style="overflow:auto">
+    <table id="tableData" class="ui selectable celled compact single line striped unstackable structured head stuck table tbl_font">
+    <thead>
+        <!-- 1 row 13col-->
+        <tr>
+            <th class="center aligned" colspan="4" >JSA(Job Safety Analysis 작업분석) _ 수시위험성평가</th>
+            <th class="center aligned">WO 번호</th> <!-- wo 번호-->
+            <th class="center aligned">zzzz</th>
+            <th class="center aligned">현장명</th> <!-- 현장명-->
+            <th class="center aligned"  colspan="6">가상</th>
+        </tr>
+        <!-- 2 row -->
+        <tr>
+            <th class="center aligned" rowspan="2" colspan="2">작업명</th> <!--작업명-->
+            <th class="center aligned" rowspan="2" colspan="2">미션</th>
+            <td class="center aligned" rowspan="2">작업구분</td> <!--작업구분-->
+            <th class="center aligned" rowspan="2">구분</th>
+            <th class="center aligned">작성자</th> <!--작성자-->
+            <th class="center aligned">홍길영</th>
+            <th class="center aligned" colspan="2">작성일자</th> <!--작성일자-->
+            <th class="center aligned" colspan="3">2025-06-27</th> 
+
+        </tr>
+        <!-- 3 row -->
+        <tr>
+            <th class="center aligned">확인자</th> <!--확인자-->
+            <th class="center aligned">사또</th>
+            <th class="center aligned" colspan="2">계통보고시간</th> <!--계통보고시간-->
+            <th class="center aligned" colspan="3">11</th> 
+        </tr>
+        <!-- 4 row -->
+        <tr>
+            <th class="center aligned" colspan="2">회사명</th> <!--회사명-->
+            <th class="center aligned" colspan="4"></th>
+            <th class="center aligned">검토자</th> <!--검토자-->
+            <th class="center aligned">홍길동</th>
+            <th class="center aligned" colspan="2">계통보고시간</th> <!--계통보고시간-->
+            <th class="center aligned" colspan="3">11</th> 
+        </tr>
+        <!-- 5 row -->
+        <tr>
+            <th class="center aligned" colspan="2">필요 보호구</th> <!--필요 보호구-->
+            <th class="center aligned" colspan="4"></th>
+            <th class="center aligned">승인자</th> <!--승인자-->
+            <th class="center aligned">승인녀</th>
+            <th class="center aligned" colspan="2">계통보고시간</th> <!--계통보고시간-->
+            <th class="center aligned" colspan="3">11</th> 
+
+        </tr>
+        <!-- 6 row -->
+        <tr>
+            <th class="center aligned" colspan="2">필요 장비/공구</th> <!--필요 장비/공구-->
+            <th class="center aligned" colspan="6">필요장비-공구</th>
+            <th class="center aligned" colspan="2">투입인원</th> <!--투입인원-->
+            <th class="center aligned" colspan="3">11</th> 
+
+        </tr>
+        <!-- 7 row -->
+        <tr>
+            <th class="center aligned" colspan="2">핵심유해위험</th> <!--핵심유해위험-->
+            <th class="left aligned" colspan="11">
+                □가동설비접근
+                □추락위험
+                □밀폐공간
+                □전기작업
+                □중량물취급
+                □A형사다리
+                □이동기기구역
+                □고온고열
+                □전동기기취급
+                □용접작업
+                □고소작업차
+                □전기실출입
+            </th>
+        </tr>
+    </thead>
+    <tbody id="resource_body">
+        <tr>
+            <td class="center aligned" rowspan="2">순번</td>                              <!--순번-->
+            <td class="center aligned" rowspan="2" colspan="2">작업단계 <br>(Steps)</td>  <!--작업단계 2-->
+            <td class="center aligned" rowspan="2">유해위험요인 (Hazards)</td>            <!--유해위험요인 (Hazards) -->
+            <td class="center aligned" rowspan="2" colspan="4">대책 <br>(Controls)</td>   <!--대책 (Controls) -->
+            <td class="center aligned" colspan="4">위험성평가 (Controls)</td>             <!--위험성평가 (Controls) -->
+            <td class="center aligned" rowspan="2">조치자</td>                            <!--조치자-->
+        </tr>
+        <tr>
+            <td class="center aligned">빈도</td>   <!--빈도 -->
+            <td class="center aligned">강도</td>   <!--강도 -->
+            <td class="center aligned">위험도</td> <!--위험도 -->
+            <td class="center aligned">등급</td>   <!--등급 -->
+        </tr>
+        <!-- 준비단계 :6 -->
+        <tr>
+            <td class="center aligned" rowspan="6">1 </td> <!--순번-->
+            <td class="center aligned" colspan="2" rowspan="6">준비단계</td>   <!--작업단계 -->
+            <td class="center aligned"> 유해위험요인 1</td> <!--유해위험요인 (Hazards) -->
+            <td class="center aligned" colspan="4">대책</td>   <!--대책 (Controls) -->            
+            <td class="center aligned">1</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">F</td>
+            <td class="center aligned">영일만</td>
+        </tr>
+        <tr>
+            <!--순번-->
+            <!--작업단계 -->
+            <td class="center aligned"> 유해위험요인 2</td> <!--유해위험요인 (Hazards) -->
+            <td class="center aligned" colspan="4">대책</td>   <!--대책 (Controls) -->            
+            <td class="center aligned">1</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">F</td>
+            <td class="center aligned">영일만</td>
+        </tr>
+        <tr>
+            <!--순번-->
+            <!--작업단계 -->
+            <td class="center aligned"> 유해위험요인 3</td> <!--유해위험요인 (Hazards) -->
+            <td class="center aligned" colspan="4">대책</td>   <!--대책 (Controls) -->            
+            <td class="center aligned">1</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">F</td>
+            <td class="center aligned">영일만</td>
+        </tr>
+        <tr>
+            <!--순번-->
+            <!--작업단계 -->
+            <td class="center aligned"> 유해위험요인 4</td> <!--유해위험요인 (Hazards) -->
+            <td class="center aligned" colspan="4">대책</td>   <!--대책 (Controls) -->            
+            <td class="center aligned">1</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">F</td>
+            <td class="center aligned">영일만</td>
+        </tr>
+        <tr>
+            <!--순번-->
+            <!--작업단계 -->
+            <td class="center aligned"> 유해위험요인 5</td> <!--유해위험요인 (Hazards) -->
+            <td class="center aligned" colspan="4">대책</td>   <!--대책 (Controls) -->            
+            <td class="center aligned">1</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">F</td>
+            <td class="center aligned">영일만</td>
+        </tr>
+        <tr>
+            <!--순번-->
+            <!--작업단계 -->
+            <td class="center aligned"> 유해위험요인 6</td> <!--유해위험요인 (Hazards) -->
+            <td class="center aligned" colspan="4">대책</td>   <!--대책 (Controls) -->            
+            <td class="center aligned">1</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">F</td>
+            <td class="center aligned">영일만</td>
+        </tr>
+        <!-- 작업실시 :8 -->
+        <tr>
+            <td class="center aligned" rowspan="8">2 </td> <!--순번-->
+            <td class="center aligned" colspan="2" rowspan="8">작업실시</td>   <!--작업실시 -->
+            <td class="center aligned"> 유해위험요인 1</td> <!--유해위험요인 (Hazards) -->
+            <td class="center aligned" colspan="4">대책</td>   <!--대책 (Controls) -->            
+            <td class="center aligned">1</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">F</td>
+            <td class="center aligned">영일만</td>
+        </tr>
+        <tr>
+            <!--순번-->
+            <!--작업단계 -->
+            <td class="center aligned"> 유해위험요인 2</td> <!--유해위험요인 (Hazards) -->
+            <td class="center aligned" colspan="4">대책</td>   <!--대책 (Controls) -->            
+            <td class="center aligned">1</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">F</td>
+            <td class="center aligned">영일만</td>
+        </tr>
+        <tr>
+            <!--순번-->
+            <!--작업단계 -->
+            <td class="center aligned"> 유해위험요인 3</td> <!--유해위험요인 (Hazards) -->
+            <td class="center aligned" colspan="4">대책</td>   <!--대책 (Controls) -->            
+            <td class="center aligned">1</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">F</td>
+            <td class="center aligned">영일만</td>
+        </tr>
+        <tr>
+            <!--순번-->
+            <!--작업단계 -->
+            <td class="center aligned"> 유해위험요인 4</td> <!--유해위험요인 (Hazards) -->
+            <td class="center aligned" colspan="4">대책</td>   <!--대책 (Controls) -->            
+            <td class="center aligned">1</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">F</td>
+            <td class="center aligned">영일만</td>
+        </tr>
+        <tr>
+            <!--순번-->
+            <!--작업단계 -->
+            <td class="center aligned"> 유해위험요인 5</td> <!--유해위험요인 (Hazards) -->
+            <td class="center aligned" colspan="4">대책</td>   <!--대책 (Controls) -->            
+            <td class="center aligned">1</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">F</td>
+            <td class="center aligned">영일만</td>
+        </tr>
+        <tr>
+            <!--순번-->
+            <!--작업단계 -->
+            <td class="center aligned"> 유해위험요인 6</td> <!--유해위험요인 (Hazards) -->
+            <td class="center aligned" colspan="4">대책</td>   <!--대책 (Controls) -->            
+            <td class="center aligned">1</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">F</td>
+            <td class="center aligned">영일만</td>
+        </tr>
+        <tr>
+            <!--순번-->
+            <!--작업단계 -->
+            <td class="center aligned"></td> <!--유해위험요인 (Hazards) -->
+            <td class="center aligned" colspan="4"></td>   <!--대책 (Controls) -->            
+            <td class="center aligned"></td>
+            <td class="center aligned"></td>
+            <td class="center aligned"></td>
+            <td class="center aligned"></td>
+            <td class="center aligned"></td>
+        </tr>
+        <tr>
+            <!--순번-->
+            <!--작업단계 -->
+            <td class="center aligned"></td> <!--유해위험요인 (Hazards) -->
+            <td class="center aligned" colspan="4"></td>   <!--대책 (Controls) -->            
+            <td class="center aligned"></td>
+            <td class="center aligned"></td>
+            <td class="center aligned"></td>
+            <td class="center aligned"></td>
+            <td class="center aligned"></td>
+        </tr>
+        <!-- 작업종료 :3 -->
+        <tr>
+            <td class="center aligned" rowspan="3">3 </td> <!--순번-->
+            <td class="center aligned" colspan="2" rowspan="3">작업종료</td>   <!--작업실시 -->
+            <td class="center aligned"> 유해위험요인 1</td> <!--유해위험요인 (Hazards) -->
+            <td class="center aligned" colspan="4">대책</td>   <!--대책 (Controls) -->            
+            <td class="center aligned">1</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">2</td>
+            <td class="center aligned">F</td>
+            <td class="center aligned">영일만</td>
+        </tr>
+        <tr>
+            <!--순번-->
+            <!--작업종료 -->
+            <td class="center aligned"> &nbsp;</td> <!--유해위험요인 (Hazards) -->
+            <td class="center aligned" colspan="4"></td>   <!--대책 (Controls) -->            
+            <td class="center aligned"></td>
+            <td class="center aligned"></td>
+            <td class="center aligned"></td>
+            <td class="center aligned"></td>
+            <td class="center aligned"></td>
+        </tr>
+        <tr>
+            <!--순번-->
+            <!--작업종료 -->
+            <td class="center aligned">&nbsp;</td> <!--유해위험요인 (Hazards) -->
+            <td class="center aligned" colspan="4"></td>   <!--대책 (Controls) -->            
+            <td class="center aligned"></td>
+            <td class="center aligned"></td>
+            <td class="center aligned"></td>
+            <td class="center aligned"></td>
+            <td class="center aligned"></td>
+        </tr>
+        <!-- 서명 :3 -->
+        <tr>
+            <td class="center aligned" >서명 </td> <!--순번-->
+            <td class="center aligned" colspan="12"> </td>   <!--작업실시 -->
+        </tr>
+    </tbody>
+    </table>
+  </div>
+  `);
+  exportExcel("tableData", "print1", "excel_data.xlsx");
+
+}
+/* ########## export 테이블 조회 함수 끝   ########## */
 </script>
