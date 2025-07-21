@@ -89,3 +89,8 @@ COMMENT ON TABLE itsm.itsm_code IS 'cdmd meta code 관리';
 <br>   DBeaver 종료후 재접속해보면 반영여부를 확인가능하다.
 
 <br>   동일한 방법으로 SQL 파일을 모두 실행한다.
+
+### ※. 파일추가
+
+ <br>-. 00.db_rule_schema.sql   : database user, role, schema privileges sql
+ <br>-. 99.grafana_db_duide.mp4 : grafana databae 설정및 확인 Guide
