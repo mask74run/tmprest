@@ -60,15 +60,15 @@ var tm = new Date().toTimeString().split(' ')[0].substr(0,5);
             <thead>
               <tr>
                 <th class="center aligned">순번</th>
-                <th class="center aligned">기준 CODE</th>
+                <th class="center aligned">JSA CODE</th>
                 <th class="center aligned">작업단계</th>
-                <th class="center aligned">CATG1</th>
-                <th class="center aligned">VATG2</th>
+                <th class="center aligned">작업방법</th>
+                <th class="center aligned">RISK</th>
                 <th class="center aligned">유해위험요인</th>
                 <th class="center aligned">대책</th>
                 <th class="center aligned">빈도</th>
                 <th class="center aligned">강도</th>
-                <th class="center aligned">위함도</th>
+                <th class="center aligned">위험도</th>
                 <th class="center aligned">합계</th>
                 <th class="center aligned">등록일</th>             
               </tr>
@@ -181,31 +181,32 @@ async function fn_grid_resource() {
         s_jsa_code = $('#s_jsa_code').val();
 
   let sql = `
-    SELECT jsa.id, 
-        jsa.jsa_code, 
-        jsa.work_stage_code, 
-        jsa.catg1, 
-        jsa.vatg2, 
-        jsa.risk_factors, 
-        jsa.risk_plan, 
-        jsa.fre_grade, 
-        jsa.str_grade, 
-        jsa.risk_grade, 
-        jsa.grade, 
-        jsa.flag, -- 11
-        (fre_grade::Integer + str_grade :: Integer + risk_grade::Integer) as sum_grade,
-        jsa.fst_reg_user_id, 
+    SELECT 
+        rmi.id, 
+        rmi.jsa_code, 
+        rmi.work_step, 
+        rmi.work_type, 
+        rmi.risk, 
+        rmi.risk_cause, 
+        rmi.risk_prepare, 
+        rmi.frequency, 
+        rmi.strength, 
+        rmi.risk_degree, 
+        rmi.grade, 
+        rmi.flag, -- 11
+        (frequency::Integer + strength :: Integer + risk_degree::Integer) as sum_grade,
+        rmi.fst_reg_user_id, 
 	      TO_CHAR(fst_reg_dttm,'YYYY-MM-DD HH24:mi:SS') as fst_reg_dttm ,
 	      last_reg_user_id, 
 	      TO_CHAR(last_mod_dttm,'YYYY-MM-DD HH24:mi:SS') as last_mod_dttm
-    FROM itsm.jsa_rule jsa
-   WHERE jsa.flag = '${use_flag}'`
+    FROM itsm.risk_mgr_info rmi
+   WHERE rmi.flag = '${use_flag}'`
   if(s_jsa_code) {
     sql += `
-     AND jsa.jsa_code = '${s_jsa_code}'`
+     AND rmi.jsa_code = '${s_jsa_code}'`
   }
     sql += `
-   ORDER BY jsa.id, jsa.jsa_code
+   ORDER BY rmi.id, rmi.jsa_code
   `;
   const data = await get_data(1, sql);
 
@@ -252,12 +253,12 @@ async function fn_resource_grid() {
       </div>
     </div>
     <div class="required field">
-      <label>CAGT1</label>
-      <input type="text" id="i_catg1" placeholder="CAGT1 입력...">
+      <label>작업방법</label>
+      <input type="text" id="i_catg1" placeholder="작업방법 입력...">
     </div>
     <div class="required field">
-      <label>VATG2</label>
-      <input type="text" id="i_vatg2" placeholder="VATG2 입력...">
+      <label>RISK</label>
+      <input type="text" id="i_vatg2" placeholder="RISK 입력...">
     </div>
     <div class="required field">
       <label>유해위험요인</label>
@@ -431,17 +432,18 @@ async function fn_resource_grid() {
     }
 
     const sql = `
-    INSERT INTO ITSM.JSA_RULE (
+    INSERT INTO ITSM.RISK_MGR_INFO (
                 ID
                 ,JSA_CODE
-                ,WORK_STAGE_CODE
-                ,CATG1
-                ,VATG2
-                ,RISK_FACTORS
-                ,RISK_PLAN
-                ,FRE_GRADE
-                ,STR_GRADE
-                ,RISK_GRADE
+                ,WORK_STEP
+                ,WORK_TYPE
+                ,RISK
+                ,RISK_CAUSE
+                ,RISK_PREPARE
+                ,FREQUENCY
+                ,STRENGTH
+                ,RISK_DEGREE
+                ,GRADE
                 ,FLAG 
                 ,FST_REG_USER_ID
                 ,FST_REG_DTTM 
@@ -459,6 +461,7 @@ async function fn_resource_grid() {
          , '${i_fre_grade}'
          , '${i_str_grade}'
          , '${i_risk_grade}'
+         , 'A'
          , '${i_flag}'
          , '${i_reg_user}'
          , CURRENT_TIMESTAMP
@@ -488,25 +491,25 @@ async function fn_resource_mod(e) {
     return false;
   }
   const sql = `
-    SELECT jsa.id, 
-        jsa.jsa_code, 
-        jsa.work_stage_code, 
-        jsa.catg1, 
-        jsa.vatg2, 
-        jsa.risk_factors, 
-        jsa.risk_plan, 
-        jsa.fre_grade, 
-        jsa.str_grade, 
-        jsa.risk_grade, 
-        jsa.grade, 
-        jsa.flag, 
-        (fre_grade::Integer + str_grade :: Integer + risk_grade::Integer) as sum_grade,
-        jsa.fst_reg_user_id, 
+    SELECT rmi.id, 
+        rmi.jsa_code, 
+        rmi.WORK_STEP, 
+        rmi.WORK_TYPE, 
+        rmi.RISK, 
+        rmi.RISK_CAUSE, 
+        rmi.RISK_PREPARE, 
+        rmi.FREQUENCY, 
+        rmi.STRENGTH, 
+        rmi.RISK_DEGREE, 
+        rmi.grade, 
+        rmi.flag, 
+        (FREQUENCY::Integer + STRENGTH :: Integer + RISK_DEGREE::Integer) as sum_grade,
+        rmi.fst_reg_user_id, 
 	      TO_CHAR(fst_reg_dttm,'YYYY-MM-DD HH24:mi:SS') as fst_reg_dttm ,
 	      last_reg_user_id, 
 	      TO_CHAR(last_mod_dttm,'YYYY-MM-DD HH24:mi:SS') as last_mod_dttm
-    FROM itsm.jsa_rule jsa
-   WHERE jsa.id = ${e}
+    FROM itsm.risk_mgr_info rmi
+   WHERE rmi.id = ${e}
   `;
   const data = await get_data(1, sql);
   if(data.length === 0) {
@@ -526,11 +529,11 @@ async function fn_resource_mod(e) {
       </div>
     </div>
     <div class="required field">
-      <label>CAGT1</label>
+      <label>작업방법</label>
       <input type="text" id="u_catg1" value="${data[0][3]}">
     </div>
     <div class="required field">
-      <label>VATG2</label>
+      <label>RISK</label>
       <input type="text" id="u_vatg2" value="${data[0][4]}">
     </div>
     <div class="required field">
@@ -742,18 +745,18 @@ async function fn_resource_mod(e) {
 
 
     const r_upd_sql = `
-    UPDATE ITSM.JSA_RULE JSA
-       SET JSA_CODE             = '${u_jsa_code}'
-         , WORK_STAGE_CODE    = '${u_work_stage_code}'
-         , CATG1              = '${u_catg1}'
-         , VATG2              = '${u_vatg2}'
-         , RISK_FACTORS       = '${u_risk_factors}'
-         , RISK_PLAN          = '${u_risk_plan}'
-         , FRE_GRADE          = '${u_fre_grade}'
-         , STR_GRADE          = '${u_str_grade}'
-         , RISK_GRADE         = '${u_risk_grade}'
-         , FLAG               = '${u_flag}'
-         , LAST_REG_USER_ID     = '${u_mod_user}'
+    UPDATE ITSM.RISK_MGR_INFO JSA
+       SET JSA_CODE         = '${u_jsa_code}'
+         , WORK_STEP        = '${u_work_stage_code}'
+         , WORK_TYPE        = '${u_catg1}'
+         , RISK             = '${u_vatg2}'
+         , RISK_CAUSE       = '${u_risk_factors}'
+         , RISK_PREPARE     = '${u_risk_plan}'
+         , FREQUENCY        = '${u_fre_grade}'
+         , STRENGTH         = '${u_str_grade}'
+         , RISK_DEGREE      = '${u_risk_grade}'
+         , FLAG             = '${u_flag}'
+         , LAST_REG_USER_ID = '${u_mod_user}'
          , LAST_MOD_DTTM    = CURRENT_TIMESTAMP
      WHERE ID = ${data[0][0]}
     `
