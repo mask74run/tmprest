@@ -1092,6 +1092,7 @@ async function export_excel_on(plan_id) {
 					PLANT_INFO PI2
 				WHERE PMJ.PLANT_ID = '${plan_id}'
 					AND PMJ.PLANT_ID  = PI2.ID 
+          AND PMJ.JSA_CODE LIKE 'A%'
 				ORDER BY RMI.jsa_code, pmj.seq  `;
   const excel_user_data = await get_data(1, excel_user_sql);
   if(excel_user_data instanceof Error){console.error("에러 발생: " + excel_user_data.message);return};
@@ -1234,13 +1235,47 @@ async function export_excel_on(plan_id) {
 
       console.log(mtbltmp);
       flaged = '';
-    mtbltmp +=`
-        <!-- 작업실시 :9 -->
-        <tr>
-            <td class="center aligned" rowspan="9">2 </td> <!--순번-->
-            <td class="center aligned" colspan="2" rowspan="9">작업실시</td>   <!--작업실시 -->
-      `;
-      excel_user_data.forEach(function(obj) 
+      mtbltmp +=`
+          <!-- 작업실시 :9 -->
+          <tr>
+              <td class="center aligned" rowspan="9">2 </td> <!--순번-->
+              <td class="center aligned" colspan="2" rowspan="9">작업실시</td>   <!--작업실시 -->
+        `;
+      let excel_user_sql_p2 = `
+            SELECT PMJ.ID
+              ,PMJ.SEQ
+              , PI2.ID
+              , PI2.EQ_CODE 
+              , PI2.ID
+              , PI2.FAC_CD
+              , PI2.SETUP_PLACE
+              , PI2.SPEC
+              , PI2.MODEL
+              , PI2.MAKER
+              , PI2.IP_ADDR 
+              , PI2.COM_PORT
+              , PI2.RGB
+              ,'RMI' SP_LINE
+              , RMI.JSA_CODE
+              , RMI.WORK_STEP
+              , RMI.WORK_TYPE
+              , RMI.RISK
+              , RMI.RISK_CAUSE
+              , RMI.RISK_PREPARE
+              , RMI.FREQUENCY 
+              , RMI.STRENGTH 
+              , RMI.RISK_DEGREE 
+              , RMI.GRADE
+            FROM PLANT_MATCH_JSA PMJ LEFT JOIN RISK_MGR_INFO RMI ON PMJ.JSA_CODE = RMI.JSA_CODE ,
+              PLANT_INFO PI2
+            WHERE PMJ.PLANT_ID = '${plan_id}'
+              AND PMJ.PLANT_ID  = PI2.ID 
+              AND PMJ.JSA_CODE LIKE 'B%'
+            ORDER BY RMI.jsa_code, pmj.seq  `;
+      const excel_user_data_p2 = await get_data(1, excel_user_sql_p2);
+      if(excel_user_data_p2 instanceof Error){console.error("에러 발생: " + excel_user_data_p2.message);return};
+
+      excel_user_data_p2.forEach(function(obj) 
       {
         if (flaged) {mtbltmp +=`<tr>`};
         
@@ -1258,7 +1293,7 @@ async function export_excel_on(plan_id) {
         flaged = "Y";
       });
       // 작업실시 : 9 
-      _size = excel_user_data.length;
+      _size = excel_user_data_p2.length;
       loop_cnt = 9 - _size;
       for (var i=0; i<loop_cnt; i++)
       {
