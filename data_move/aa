@@ -1,0 +1,1 @@
+INSERT INTO itsm.plant_info (id,eq_code,gubun,setup_dt,fac_cd,setup_place,spec,model,maker,flag,fst_reg_user_id,fst_reg_dttm,last_reg_user_id,last_mod_dttm)
