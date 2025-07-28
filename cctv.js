@@ -299,6 +299,19 @@ async function fn_grid_resource() {
     FROM
       ITSM.PLANT_INFO PI2 
    WHERE PI2.FLAG = '${flag}'`
+  if(s_eq_code) {
+    sql += `
+     AND PI2.EQ_CODE like concat('${s_eq_code}','%')`
+  }
+  if(s_setup_place) {
+    sql += `
+     AND PI2.SETUP_PLACE  like concat('${s_setup_place}', '%')`
+  }
+  if(s_maker) {
+    sql += `
+     AND PI2.MAKER  like concat('${s_maker}', '%')`
+  }
+
     sql += `
    ORDER BY PI2.ID, PI2.EQ_CODE
   `;
