@@ -9,6 +9,7 @@
 #panel-2 .panel-content>*, #panel-2 .panel-content>*>*{overflow: unset!important}
 #panel-2 {width:100%!important;height:100%!important}
 .h_100{height: 100%!important}
+.w_100{width: 100%!important}
 .ui.two.column.main.grid>.column{padding:8px!important}
 .ui.tree.accordion .accordion>.content, .ui.tree.accordion>.content{margin-left:10px}
 .ui.foot.stuck.table>tfoot, .ui.head.stuck.table>thead{z-index: 9!important}
@@ -102,12 +103,12 @@ var tm = new Date().toTimeString().split(' ')[0].substr(0,5);
             </div>
           </div>
           <div class="right menu">
-            <button class="ui brown button" style="margin:0px 0px 0px 14px" onclick="fn_grid_resource()">검색</button>
+            <button class="ui brown button" style="margin:0px 0px 0px 14px" onclick="fn_grid_resource(paging)">검색</button>
           </div>
         </div>
       </div>
-      <div class="ui basic segment no_mg" style="height:calc(100% - 49px)">
-        <div class="ui basic segment no_mg no_pd" style="height:100%;overflow:auto">
+      <div class="ui basic segment no_mg" style="height:calc(100% - 60px)">
+        <div id="tbl_scroll" class="ui basic segment no_mg no_pd" style="height:100%;overflow:auto">
           <table class="ui celled head stuck selectable single line compact table">
             <thead>
               <tr>     
@@ -134,6 +135,13 @@ var tm = new Date().toTimeString().split(' ')[0].substr(0,5);
             <tbody id="resource_body"></tbody>
           </table>
         </div>
+        <div id="paginationControls" class="center ui basic w_100 no_mg center aligned" style="text-align: center;">
+            <button id="prevPage" class="center ui brown button" style="margin:0px 0px 0px 0px"  onclick="calcpage(-1);">prev</button>
+            <span id="currentPage" class="center ui large label" >Page 1</span>
+            <button id="nextPage" class="center ui brown button" style="margin:0px 0px 0px 0px"  onclick="calcpage(1)">Next</button>
+        </div>
+        <!-- <div id="tableContainer">
+        </div> -->
       </div>
     </div>
   </div>
@@ -183,97 +191,75 @@ let mpre_chk_dt = document.getElementById("pre_chk_dt");
 mpre_chk_dt.value = dt;
 
 jQuery.noConflict();
+// rows = 스크롤을 내릴 때 마다 해당 수만큼 append
+var paging = 1, rows = 30, max_rows = 9999, gv_data = '';
+
 $(document).ready(async () => {
   fn_resource_grid();
-  // fn_clarm_page();
-  // fn_set_title();
-  // await fn_drop_account();
-  await fn_grid_resource();
-  // fn_resource_grid();
+
+  await fn_grid_resource(paging);
   if('${__user.login}' !== 'admin') {
     $('.sidemenu').css('display','none');
     $('.page-toolbar').css('display','none');
   }
 })
 
-/* ########## 메인화면 타이틀 시작 ########## */
-// function fn_set_title() {
-//   $('#main_title').html(`
-//   <i class="pencil alternate icon"></i>
-//   <div class="content">
-//     리소스 관리
-//     <div class="sub header">CLARM 리소스 관리</div>
-//   </div>`)
-// }
-/* ########## 메인화면 타이틀 끝 ########## */
+//###### page pre next button ######
+async function calcpage(val) {
+  paging = paging + eval(val);
+  if (paging <= 0) paging = 1;
+  await fn_grid_resource (paging);
+}
 
-/* ########## 메뉴조회 시작 ########## */
-// 계정명 메뉴 조회 함수
-// async function fn_drop_account() {
-//   let s_use_flag = $('#s_use_flag').val(),
-//       s_account_name = $('#s_account_name');
+//###### render Table next button ######
+async function renderTable(data, pageIndex, totalPages) {
 
-//   const account_sql = `
-//   SELECT ID
-//        , ACCOUNT_NAME
-//     FROM CLARM_BASIC_ORG_INFO
-//    WHERE USE_FLAG = '${s_use_flag}'
-//    ORDER BY ID
-//   `;
+    const currentPageSpan = document.getElementById('currentPage');
+    currentPageSpan.textContent = `Page ${pageIndex} of ${totalPages}`;
 
-//   const account_data = await get_data(1, account_sql);
-//   if(!Array.isArray(account_data) || account_data.length === 0) {
-//     console.log(account_data);
-//     return;
-//   }
+    const prevButton = document.getElementById('prevPage');
+    const nextButton = document.getElementById('nextPage');
 
-//   s_account_name.empty();
-//   account_data.forEach((obj)=>{
-//     s_account_name.append(`<option value="${obj[0]}">${obj[1]}</option>`)   
-//   })
-
-//   s_account_name.on('change', function() {
-//     fn_drop_resource()
-//   })
-// }
-
-// async function fn_drop_resource() {
-//   let s_use_flag       = $('#s_use_flag').val(),
-//       s_account_name   = $('#s_account_name').val(),
-//       s_resource_gubun = $('#s_resource_gubun');
-
-//   let resource_sql = `
-//   SELECT RESOURCE_GUBUN
-//     FROM CLARM_RESOURCE_ORG_INFO
-//    WHERE USE_FLAG = '${s_use_flag}'
-//      AND BASIC_ID = '${s_account_name}'
-//    GROUP BY 1
-//    ORDER BY 1
-//   `;
-
-//   const resource_data = await get_data(1, resource_sql);
-//   if(!Array.isArray(resource_data) || resource_data.length === 0) {
-//     console.log(resource_data);
-//     return;
-//   }
-
-//   s_resource_gubun.html(`<option value="all">전체</option>`);
-//   resource_data.forEach((obj)=>{
-//     s_resource_gubun.append(`<option value="${obj[0]}">${obj[0]}</option>`)   
-//    })
-// }
-/* ########## 메뉴조회 끝 ########## */
-
+    prevButton.disabled = pageIndex === 1;
+    nextButton.disabled = pageIndex === totalPages;
+}
 
 /* ########## 메인화면 좌측 테이블 시작 ########## */
-async function fn_grid_resource() {
+async function fn_grid_resource(paging) {
   const flag          = $('#s_flag').val(),            //사용구분
         s_eq_code     = $('#s_eq_code').val(),         //설비코드
         s_setup_place = $('#s_setup_place').val(),     //설치장소
         s_maker       = $('#s_maker').val(),           //makert
         s_pre_chk_dt  = $('#s_pre_chk_dt').val();      //예방조치일 
-
-  let sql = `
+  if (paging===0) paging = 1;
+  let sql ='';
+  ////
+  sql =`
+        SELECT  count(*)   data,
+               '${paging}' pageindex , 
+              (count(*) / 30)  totalpages
+        FROM  ITSM.PLANT_INFO PI2 
+        WHERE PI2.FLAG = '${flag}'`;
+  if(s_eq_code) {
+    sql += `
+    AND PI2.EQ_CODE like concat('${s_eq_code}','%')` ;
+  }
+  if(s_setup_place) {
+    sql += `
+    AND PI2.SETUP_PLACE  like concat('${s_setup_place}', '%')` ;
+  }
+  if(s_maker) {
+    sql += `
+    AND PI2.MAKER  like concat('${s_maker}', '%')` ;
+  }
+  console.log (sql);
+  gv_data = await get_data(1, sql);
+  renderTable(gv_data[0][0], gv_data[0][1], gv_data[0][2]);
+  console.log (gv_data[0][0]);
+  console.log (gv_data[0][1]);
+  console.log (gv_data[0][2]);
+  ////
+  sql = `
     SELECT
       PI2.ID,
       PI2.EQ_CODE,
@@ -295,33 +281,38 @@ async function fn_grid_resource() {
       PI2.FST_REG_USER_ID,
       TO_CHAR(PI2.FST_REG_DTTM, 'YYYY-MM-DD HH24:MI:SS'),
       PI2.LAST_REG_USER_ID,
-      TO_CHAR(PI2.LAST_MOD_DTTM, 'YYYY-MM-DD HH24:MI:SS')
+      TO_CHAR(PI2.LAST_MOD_DTTM, 'YYYY-MM-DD HH24:MI:SS'),
+      RANK() OVER (ORDER BY PI2.ID, PI2.EQ_CODE)  IDX     -- 22 
     FROM
       ITSM.PLANT_INFO PI2 
    WHERE PI2.FLAG = '${flag}'`
   if(s_eq_code) {
     sql += `
-     AND PI2.EQ_CODE like concat('${s_eq_code}','%')`
+     AND PI2.EQ_CODE like concat('${s_eq_code}','%')` ;
   }
   if(s_setup_place) {
     sql += `
-     AND PI2.SETUP_PLACE  like concat('${s_setup_place}', '%')`
+     AND PI2.SETUP_PLACE  like concat('${s_setup_place}', '%')` ;
   }
   if(s_maker) {
     sql += `
-     AND PI2.MAKER  like concat('${s_maker}', '%')`
+     AND PI2.MAKER  like concat('${s_maker}', '%')` ;
   }
 
     sql += `
    ORDER BY PI2.ID, PI2.EQ_CODE
   `;
-  const data = await get_data(1, sql);
+
+   sql += `\n LIMIT ${rows} OFFSET (${paging} - 1) * ${rows};`;
+
+
+  gv_data = await get_data(1, sql);
   const tbody = $('#resource_body');
   tbody.empty()
-  data.forEach((obj, index) => {
+  gv_data.forEach((obj, index) => {
     let option = `
     <tr onclick="fn_resource_mod(${obj[0]})">
-      <td class="center aligned">${index+1}</td>
+      <td class="center aligned">${obj[21]}</td>
       <td>${obj[1]}</td>
       <td>${obj[2]}</td>
       <td>${obj[3]}</td>
@@ -342,9 +333,28 @@ async function fn_grid_resource() {
       option += `</tr>`
     tbody.append(option)
   })
-//   $('.tab_detail').popup()
 ;
 }
+
+// // 스크롤 이동 시 이벤트
+// $('#tbl_scroll').scroll(function() {
+//   var container = $(this);
+//   var scrollHeight = container.prop('scrollHeight');
+//   var scrollTop = container.scrollTop();
+//   var containerHeight = Math.ceil(container.innerHeight());
+
+//   // 스크롤이 끝에 다다른 경우
+//   if (scrollTop + containerHeight >= scrollHeight/1.2) {
+//     if(paging < gv_data.length) {
+//       // paging += rows
+//       paging += 1;
+//       fn_grid_resource(paging);
+//     }
+//   }else{
+//     alert((scrollTop + containerHeight));
+//     paging -= 1;
+//   }
+// });
 /* ########## 메인화면 좌측 테이블 끝 ########## */
 
 /* ########## 리소스 등록 화면 시작 ########## */
@@ -595,7 +605,7 @@ async function fn_resource_grid() {
     } else {
       // 정상 결과 처리
       alert('등록 완료');
-      await fn_grid_resource();
+      await fn_grid_resource(0);
       await fn_resource_grid();
     }
   })
@@ -884,7 +894,7 @@ async function fn_resource_mod(e) {
     } else {
       // 정상 결과 처리
       alert('수정 완료');
-      await fn_grid_resource();
+      await fn_grid_resource(0);
       await fn_resource_grid();
     }
   })
@@ -964,18 +974,7 @@ async function jsa_match_on(plan_id) {
   }
 
   async function fn_update_match(plan_id, pmu, msl) {
-    // alert(users.length);
-    // alert("--" + plan_id);
-    // users.forEach(async function(obj) {
-    //     alert("aa"+obj);
-    // });
 
-    // let sql = ` UPDATE ITSM.PLANT_MATCH_JSA
-    //       SET STATS_CD ='K' , LAST_MOD_DTTM = CURRENT_TIMESTAMP
-    //     WHERE PLANT_ID ='${plan_id}' AND STATS_CD = 'C'
-    //    `;
-    // alert (sql);
-    // let mod_status_data = await get_data(1, sql);
     // 체크 된 사용자를 루핑돌며 UPSERT
     if(users.length > 0) {
       users.forEach(async function(obj) {
@@ -987,18 +986,7 @@ async function jsa_match_on(plan_id) {
           RETURNING *
         `;
       let mod_status_data = await get_data(1, sql);
-/*
-      alert("ssss");
-      alert (mod_status_data);
-      alert (typeof mod_status_data);
-      alert (mod_status_data.toString());
-      alert (`The object is: ${mod_status_data}`);
-      alert (JSON.stringify(mod_status_data));
-      alert ("========");
 
-      alert (`mod_status_data.length: ${mod_status_data.length}`);
-      alert (`JSON.stringify(mod_status_data).length: ${JSON.stringify(mod_status_data).length}`);
-*/
       if(mod_status_data instanceof Error){console.error("에러 발생: " + mod_status_data.message);return};
 
       // update 후 값이 있으면 skip 
@@ -1036,17 +1024,6 @@ async function jsa_match_on(plan_id) {
       }
     });
 
-    //   /* db  등록후 BackEnd Service call */
-    //   let p_sql = `
-    //         SELECT val->>'status'  AS status
-    //             , val->>'content' AS value
-    //             , val->>'message' AS error
-    //         FROM CLARM.CMON_API_POST('http://clarm-api.gsrdevops.com/tfaction/deferred' --url
-    //                 , '{"action": "${mmu}", "user_id": "${__user.login}"}'::JSON 
-    //                 ) A(VAL)
-    //             `
-    //   let gv_appdata = await get_data(1, p_sql);
-    //   alert("Status : "+gv_appdata[0]+"\nData : "+gv_appdata[1]+"\n[서비스 호출 처리가 완료 되었습니다.]");
     } // users.length 체크 된 사용자를 루핑돌며 UPSERT
   } // end func fn_update_match
 
