@@ -54,6 +54,8 @@ async function exportExcel(exptblid, expsheetname, savefilename)
   endCell = nws.getCell('V30');
   // Style 
   item_align = {horizontal: 'center', vertical: 'middle'};
+  //font
+  item_font_title = { bold: true, name: "맑은 고딕", size:11,  color: { rgb: "ff0000" }};
   
   for (let rowNum = startCell.row; rowNum <= endCell.row; rowNum++) {
       for (let colNum = startCell.col; colNum <= endCell.col; colNum++) {
@@ -64,10 +66,12 @@ async function exportExcel(exptblid, expsheetname, savefilename)
               bottom: { style: 'thin', color: { argb: '000000' } },
               right: { style: 'thin', color: { argb: '000000' } }
           };
-          cell.height =20;
+          cell.height =20;          
           cell.font = { bold: false, name: "맑은 고딕", size:11,  color: { rgb: "ff0000" }};
+          nws.getColumn(colNum).width = 7; //all column size
       }
   }
+
   nws.getCell(1, 1).font = { bold: true, name: "맑은 고딕", size:20,  color: { rgb: "000000" }};
   nws.getRow(9).height = 3;
   nws.mergeCells('A1:G2'); // JSA Title
@@ -76,6 +80,16 @@ async function exportExcel(exptblid, expsheetname, savefilename)
 
   nws.mergeCells('J3:J4'); // JSA Title
   nws.mergeCells('K3:L4'); // JSA Title
+
+  nws.getCell('J2').alignment = item_align; nws.getCell('J2').font = item_font_title;
+  nws.getCell('J3').alignment = item_align; nws.getCell('J3').font = item_font_title;
+  nws.getCell('K3').alignment = item_align; nws.getCell('K3').font = item_font_title;
+
+  nws.getCell('M2').font = item_font_title; nws.getCell('M2').alignment = item_align;
+  nws.getCell('M3').font = item_font_title; nws.getCell('M3').alignment = item_align;
+  nws.getCell('M4').font = item_font_title; nws.getCell('M4').alignment = item_align;
+  nws.getCell('M5').font = item_font_title; nws.getCell('M5').alignment = item_align;
+  nws.getCell('M6').font = item_font_title; nws.getCell('M6').alignment = item_align;
 
   nws.mergeCells('N3:P3'); // 작성자 N
   nws.mergeCells('N4:P4'); // 확인자 N
@@ -87,6 +101,13 @@ async function exportExcel(exptblid, expsheetname, savefilename)
   nws.mergeCells('Q5:R5'); // 검토일자 Q
   nws.mergeCells('Q6:R6'); // 승인일자 Q
   nws.mergeCells('Q7:R7'); // 투입인원 Q
+
+  nws.getCell('Q3').font = item_font_title; nws.getCell('Q3').alignment = item_align;
+  nws.getCell('Q4').font = item_font_title; nws.getCell('Q4').alignment = item_align;
+  nws.getCell('Q5').font = item_font_title; nws.getCell('Q5').alignment = item_align;
+  nws.getCell('Q6').font = item_font_title; nws.getCell('Q6').alignment = item_align;
+  nws.getCell('Q7').font = item_font_title; nws.getCell('Q7').alignment = item_align;
+
 
   nws.mergeCells('A3:C4'); // 작업명 A
   nws.mergeCells('A5:C5'); // 회사명 A
@@ -123,15 +144,23 @@ async function exportExcel(exptblid, expsheetname, savefilename)
   nws.getCell('D8').border  = item_bott_right_style; 
   nws.getCell('A8').border  = item_bott_left_style;
   nws.getCell('A8').alignment = item_align;
+  nws.getCell('A8').font = item_font_title;
 
   nws.getCell('A3').border  = item_left_style;
   nws.getCell('A3').alignment = item_align;
+  nws.getCell('A3').font = item_font_title;
+  
   nws.getCell('A5').border  = item_left_style;
   nws.getCell('A5').alignment = item_align;
+  nws.getCell('A5').font = item_font_title;
+
   nws.getCell('A6').border  = item_left_style;
   nws.getCell('A6').alignment = item_align;
+  nws.getCell('A6').font = item_font_title;
+
   nws.getCell('A7').border  = item_left_style;
   nws.getCell('A7').alignment = item_align;
+  nws.getCell('A7').font = item_font_title;
 
 
   nws.mergeCells('A10:A11'); // 순번 T
@@ -148,6 +177,13 @@ async function exportExcel(exptblid, expsheetname, savefilename)
   nws.getCell('Q10').alignment = item_align;
   nws.getCell('U10').alignment = item_align;
 
+  nws.getCell('A10').font = item_font_title;
+  nws.getCell('B10').font = item_font_title;
+  nws.getCell('E10').font = item_font_title;
+  nws.getCell('J10').font = item_font_title;
+  nws.getCell('Q10').font = item_font_title;
+  nws.getCell('U10').font = item_font_title;
+
   nws.getCell('A10').border = item_top_left_style;
   nws.getCell('B10').border = item_top_style;
   nws.getCell('E10').border = item_top_style;
@@ -157,14 +193,22 @@ async function exportExcel(exptblid, expsheetname, savefilename)
   nws.getCell('Q11').alignment = item_align;
   nws.getCell('R11').alignment = item_align;
   nws.getCell('S11').alignment = item_align;
-  nws.getCell('T11').alignment = item_align;
+  nws.getCell('T11').alignment = item_align;  
+
+  nws.getCell('Q11').font = item_font_title;
+  nws.getCell('R11').font = item_font_title;
+  nws.getCell('S11').font = item_font_title;
+  nws.getCell('T11').font = item_font_title;
+
   //tbl 1
   nws.mergeCells('A12:A17');
   nws.getCell('A12').alignment = item_align;
   nws.getCell('A12').border  = item_left_style;
+  nws.getCell('A12').font = item_font_title;
 
   nws.mergeCells('B12:D17');
   nws.getCell('B12').alignment = item_align;
+  nws.getCell('B12').font = item_font_title;
 
   nws.mergeCells('E12:I12');
   nws.mergeCells('E13:I13');
@@ -184,9 +228,11 @@ async function exportExcel(exptblid, expsheetname, savefilename)
   nws.mergeCells('A18:A26');
   nws.getCell('A18').alignment = item_align;
   nws.getCell('A18').border  = item_left_style;
+  nws.getCell('A18').font = item_font_title;
 
   nws.mergeCells('B18:D26');
   nws.getCell('B18').alignment = item_align;
+  nws.getCell('B18').font = item_font_title;
 
   nws.mergeCells('E18:I18');
   nws.mergeCells('E19:I19');
@@ -212,9 +258,11 @@ async function exportExcel(exptblid, expsheetname, savefilename)
   nws.mergeCells('A27:A29');
   nws.getCell('A27').alignment = item_align;
   nws.getCell('A27').border  = item_left_style;
+  nws.getCell('A27').font = item_font_title;
 
   nws.mergeCells('B27:D29');
   nws.getCell('B27').alignment = item_align;
+  nws.getCell('B27').font = item_font_title;
 
   nws.mergeCells('E27:I27');
   nws.mergeCells('E28:I28');
@@ -227,6 +275,8 @@ async function exportExcel(exptblid, expsheetname, savefilename)
   //tbl 4 
   nws.mergeCells('B30:S30');
   nws.mergeCells('T30:V30');
+  nws.getCell('B30').alignment = item_align;
+  nws.getCell('B30').font = item_font_title;
 
   //tbl all 조치자 
   nws.mergeCells('U12:V12');
@@ -293,7 +343,7 @@ async function exportExcel(exptblid, expsheetname, savefilename)
   nws.getCell('M2').border ={top: { style: 'thick', color: { argb: '000000' } },left: { style: 'thick', color: { argb: '000000' }},right: { style: 'thin', color: { argb: '000000' }},bottom: { style: 'thin', color: { argb: '000000' }}};
   nws.getCell('N2').border ={top: { style: 'thick', color: { argb: '000000' } },left: { style: 'thin', color: { argb: '000000' }},right: { style: 'thick', color: { argb: '000000' }},bottom: { style: 'thin', color: { argb: '000000' }}};
   
-  nws.getRow(30).height = 40;
+  nws.getRow(30).height = 80;
 //
   imageId = wb.addImage({
     base64: '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',
@@ -301,16 +351,34 @@ async function exportExcel(exptblid, expsheetname, savefilename)
   });
 
   nws.addImage(imageId, 'T30:V30'); // Fits image in cell A1
+  mainCell = nws.getCell('A1');
+  // JSA(Job safety Analysis 작업안전분석)_수시위험성평가
+  mainCell.value = {
+      'richText': [
+          { 'font': { 'size': 24, 'bold': true }, 'text': 'JSA ' },
+          { 'font': { 'size': 16, 'bold': true }, 'text': '(Job safety Analysis 작업안전분석)' },
+          { 'font': { 'size': 11, 'bold': false }, 'text': '_수시위험성평가' }
+      ]
+  }
+  //서명
 
-mainCell = nws.getCell('A1');
-// JSA(Job safety Analysis 작업안전분석)_수시위험성평가
-mainCell.value = {
-    'richText': [
-        { 'font': { 'size': 24, 'bold': true }, 'text': 'JSA ' },
-        { 'font': { 'size': 16, 'bold': true }, 'text': '(Job safety Analysis 작업안전분석)' },
-        { 'font': { 'size': 11, 'bold': false }, 'text': '_수시위험성평가' }
-    ]
-}
+  subCell = nws.getCell('A30');
+  subCell.value = '서 \r\n 명';
+  subCell.alignment = item_align;
+  subCell.font = item_font_title;
+
+  nws.getColumn(1).width = 4; //A
+  nws.getColumn(6).width = 4; //G
+  nws.getColumn(7).width = 40; //H
+  nws.getColumn(8).width = 4; //I
+  nws.getColumn(9).width = 15; //J
+  nws.getColumn(11).width = 15; //L
+  // subCell.value = {
+  //     'richText': [
+  //         { 'font': { 'size': 11, 'bold': true }, 'text': '서\r\n' },
+  //         { 'font': { 'size': 11, 'bold': true }, 'text': '명' }
+  //     ]
+  // }
 //////////
     const buffer = await wb.xlsx.writeBuffer();
     saveAs(new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }), savefilename);
