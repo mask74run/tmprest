@@ -17,32 +17,303 @@
 .ui.large.label{background-color:inherit!important;color:black!important;text-shadow:none}
 </style>
 
-<script src="public/custom/xlsx.full.min.js"></script>
+<script src="public/custom/exceljs.min.js"></script>
 <script src="public/custom/FileSaver.min.js"></script>
+
 <script>
-function s2ab(s) { 
-    var buf = new ArrayBuffer(s.length); //convert s to arrayBuffer
-    var view = new Uint8Array(buf);  //create uint8array as viewer
-    for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF; //convert to octet
-    return buf;    
+
+// col 22, row 30
+async function exportExcel(exptblid, expsheetname, savefilename)
+{ 
+  // step 1. workbook 생성
+  var wb = new ExcelJS.Workbook();
+
+  // step 2. 시트 만들기 
+  // var newWorksheet = excelHandler.getWorksheet();
+  var nws =  wb.addWorksheet(expsheetname);
+  ex_table = document.getElementById(exptblid);
+  // ex_headers = Array.from(ex_table.querySelector('thead tr').children).map(th => th.textContent.trim());
+  ex_headers = Array.from(ex_table.querySelector('thead').children).map(tr => 
+      Array.from(tr.children).map(th => th.textContent.trim())
+    );
+
+  ex_rows = Array.from(ex_table.querySelector('tbody').children).map(tr => 
+      Array.from(tr.children).map(td => td.textContent.trim())
+    );
+
+  ex_headers.forEach(row => {
+    nws.addRow(row);
+  });
+
+  ex_rows.forEach(row => {
+    nws.addRow(row);
+  });
+////////
+  // all change 
+  startCell = nws.getCell('A1');
+  endCell = nws.getCell('V30');
+  // Style 
+  item_align = {horizontal: 'center', vertical: 'middle'};
+  
+  for (let rowNum = startCell.row; rowNum <= endCell.row; rowNum++) {
+      for (let colNum = startCell.col; colNum <= endCell.col; colNum++) {
+          cell = nws.getCell(rowNum, colNum);
+          cell.border = {
+              top: { style: 'thin', color: { argb: '000000' } },
+              left: { style: 'thin', color: { argb: '000000' } },
+              bottom: { style: 'thin', color: { argb: '000000' } },
+              right: { style: 'thin', color: { argb: '000000' } }
+          };
+          cell.height =20;
+          cell.font = { bold: false, name: "맑은 고딕", size:11,  color: { rgb: "ff0000" }};
+      }
+  }
+  nws.getCell(1, 1).font = { bold: true, name: "맑은 고딕", size:20,  color: { rgb: "000000" }};
+  nws.getRow(9).height = 3;
+  nws.mergeCells('A1:G2'); // JSA Title
+  nws.mergeCells('H1:V1'); // space 
+  nws.mergeCells('N2:V2'); // 현장명 N
+
+  nws.mergeCells('J3:J4'); // JSA Title
+  nws.mergeCells('K3:L4'); // JSA Title
+
+  nws.mergeCells('N3:P3'); // 작성자 N
+  nws.mergeCells('N4:P4'); // 확인자 N
+  nws.mergeCells('N5:P5'); // 검토자 N
+  nws.mergeCells('N6:P6'); // 승인자 N
+
+  nws.mergeCells('Q3:R3'); // 작성일자 Q
+  nws.mergeCells('Q4:R4'); // 확인일자 Q
+  nws.mergeCells('Q5:R5'); // 검토일자 Q
+  nws.mergeCells('Q6:R6'); // 승인일자 Q
+  nws.mergeCells('Q7:R7'); // 투입인원 Q
+
+  nws.mergeCells('A3:C4'); // 작업명 A
+  nws.mergeCells('A5:C5'); // 회사명 A
+  nws.mergeCells('A6:C6'); // 필요보호구 A
+  nws.mergeCells('A7:C7'); // 필요장비 A
+  nws.mergeCells('A8:C8'); // 유해위험 A
+
+  nws.mergeCells('D3:I4'); // 작업명 T
+  nws.mergeCells('D5:L5'); // 회사명 T
+  nws.mergeCells('D6:L6'); // 필요보호구 T
+  nws.mergeCells('D7:P7'); // 필요장비 T
+  nws.mergeCells('D8:V8'); // 유해위험 T
+
+  item_bott_right_style = {bottom: { style: 'thick', color: { argb: '000000' }},right: { style: 'thick', color: { argb: '000000' }},top: { style: 'thin', color: { argb: '000000' }},left: { style: 'thin', color: { argb: '000000' }}};
+  item_bott_left_style  = {bottom: { style: 'thick', color: { argb: '000000' } },left: { style: 'thick', color: { argb: '000000' }},top: { style: 'thin', color: { argb: '000000' }},right: { style: 'thin', color: { argb: '000000' }}};
+  item_left_style  = {left: { style: 'thick', color: { argb: '000000' } },bottom: { style: 'thin', color: { argb: '000000' }},top: { style: 'thin', color: { argb: '000000' }},right: { style: 'thin', color: { argb: '000000' }}};
+  item_right_style  = {right: { style: 'thick', color: { argb: '000000' } },bottom: { style: 'thin', color: { argb: '000000' }},top: { style: 'thin', color: { argb: '000000' }},left: { style: 'thin', color: { argb: '000000' }}};
+  item_bottom_style  = {bottom: { style: 'thick', color: { argb: '000000' } },right: { style: 'thin', color: { argb: '000000' }},top: { style: 'thin', color: { argb: '000000' }},left: { style: 'thin', color: { argb: '000000' }}};
+  item_top_style  = {top: { style: 'thick', color: { argb: '000000' } },bottom: { style: 'thin', color: { argb: '000000' }},right: { style: 'thin', color: { argb: '000000' }},left: { style: 'thin', color: { argb: '000000' }}};
+  item_top_right_style  = {top: { style: 'thick', color: { argb: '000000' } },right: { style: 'think', color: { argb: '000000' }},bottom: { style: 'thin', color: { argb: '000000' }},left: { style: 'thin', color: { argb: '000000' }}};
+  item_top_left_style  = {top: { style: 'thick', color: { argb: '000000' } },left: { style: 'think', color: { argb: '000000' }},right: { style: 'thin', color: { argb: '000000' }},bottom: { style: 'thin', color: { argb: '000000' }}};
+
+  item_thin_all_white_style  = {top: { style: 'thin', color: { argb: 'ffffff' } },bottom: { style: 'thin', color: { argb: 'ffffff' }},right: { style: 'thin', color: { argb: 'ffffff' }},left: { style: 'thin', color: { argb: 'ffffff' }}};
+  
+  nws.getCell('A1').border  = item_thin_all_white_style;
+  nws.getCell('H1').border  = item_thin_all_white_style;
+  nws.getCell('I2').border  = item_thin_all_white_style;
+  nws.getCell('J2').border  = item_thin_all_white_style;
+  nws.getCell('K2').border  = item_thin_all_white_style;
+  nws.getCell('L2').border  = item_thin_all_white_style;
+  nws.getCell('H2').border  = item_thin_all_white_style;
+
+
+  nws.getCell('D8').border  = item_bott_right_style; 
+  nws.getCell('A8').border  = item_bott_left_style;
+  nws.getCell('A8').alignment = item_align;
+
+  nws.getCell('A3').border  = item_left_style;
+  nws.getCell('A3').alignment = item_align;
+  nws.getCell('A5').border  = item_left_style;
+  nws.getCell('A5').alignment = item_align;
+  nws.getCell('A6').border  = item_left_style;
+  nws.getCell('A6').alignment = item_align;
+  nws.getCell('A7').border  = item_left_style;
+  nws.getCell('A7').alignment = item_align;
+
+
+  nws.mergeCells('A10:A11'); // 순번 T
+  nws.mergeCells('B10:D11'); // 작업단계 T
+  nws.mergeCells('E10:I11'); // 유해위험요인 T
+  nws.mergeCells('J10:P11'); // 대책 T
+  nws.mergeCells('Q10:T10'); // 위험성평가 T
+  nws.mergeCells('U10:V11'); // 조치자 T
+
+  nws.getCell('A10').alignment = item_align;
+  nws.getCell('B10').alignment = item_align;
+  nws.getCell('E10').alignment = item_align;
+  nws.getCell('J10').alignment = item_align;
+  nws.getCell('Q10').alignment = item_align;
+  nws.getCell('U10').alignment = item_align;
+
+  nws.getCell('A10').border = item_top_left_style;
+  nws.getCell('B10').border = item_top_style;
+  nws.getCell('E10').border = item_top_style;
+  nws.getCell('J10').border = item_top_style;
+  nws.getCell('Q10').border = item_top_style;
+
+  nws.getCell('Q11').alignment = item_align;
+  nws.getCell('R11').alignment = item_align;
+  nws.getCell('S11').alignment = item_align;
+  nws.getCell('T11').alignment = item_align;
+  //tbl 1
+  nws.mergeCells('A12:A17');
+  nws.getCell('A12').alignment = item_align;
+  nws.getCell('A12').border  = item_left_style;
+
+  nws.mergeCells('B12:D17');
+  nws.getCell('B12').alignment = item_align;
+
+  nws.mergeCells('E12:I12');
+  nws.mergeCells('E13:I13');
+  nws.mergeCells('E14:I14');
+  nws.mergeCells('E15:I15');
+  nws.mergeCells('E16:I16');
+  nws.mergeCells('E17:I17');
+  
+  nws.mergeCells('J12:P12');
+  nws.mergeCells('J13:P13');
+  nws.mergeCells('J14:P14');
+  nws.mergeCells('J15:P15');
+  nws.mergeCells('J16:P16');
+  nws.mergeCells('J17:P17');
+
+  //tbl 2
+  nws.mergeCells('A18:A26');
+  nws.getCell('A18').alignment = item_align;
+  nws.getCell('A18').border  = item_left_style;
+
+  nws.mergeCells('B18:D26');
+  nws.getCell('B18').alignment = item_align;
+
+  nws.mergeCells('E18:I18');
+  nws.mergeCells('E19:I19');
+  nws.mergeCells('E20:I20');
+  nws.mergeCells('E21:I21');
+  nws.mergeCells('E22:I22');
+  nws.mergeCells('E23:I23');
+  nws.mergeCells('E24:I24');
+  nws.mergeCells('E25:I25');
+  nws.mergeCells('E26:I26');
+  
+  nws.mergeCells('J18:P18');
+  nws.mergeCells('J19:P19');
+  nws.mergeCells('J20:P20');
+  nws.mergeCells('J21:P21');
+  nws.mergeCells('J22:P22');
+  nws.mergeCells('J23:P23');
+  nws.mergeCells('J24:P24');
+  nws.mergeCells('J25:P25');
+  nws.mergeCells('J26:P26');
+
+  //tbl 3
+  nws.mergeCells('A27:A29');
+  nws.getCell('A27').alignment = item_align;
+  nws.getCell('A27').border  = item_left_style;
+
+  nws.mergeCells('B27:D29');
+  nws.getCell('B27').alignment = item_align;
+
+  nws.mergeCells('E27:I27');
+  nws.mergeCells('E28:I28');
+  nws.mergeCells('E29:I29');
+  
+  nws.mergeCells('J27:P27');
+  nws.mergeCells('J28:P28');
+  nws.mergeCells('J29:P29');
+
+  //tbl 4 
+  nws.mergeCells('B30:S30');
+  nws.mergeCells('T30:V30');
+
+  //tbl all 조치자 
+  nws.mergeCells('U12:V12');
+  nws.mergeCells('U13:V13');
+  nws.mergeCells('U14:V14');
+  nws.mergeCells('U15:V15');
+  nws.mergeCells('U16:V16');
+  nws.mergeCells('U17:V17');
+  nws.mergeCells('U18:V18');
+  nws.mergeCells('U19:V19');
+  nws.mergeCells('U20:V20');
+  nws.mergeCells('U21:V21');
+  nws.mergeCells('U22:V22');
+  nws.mergeCells('U23:V23');
+  nws.mergeCells('U24:V24');
+  nws.mergeCells('U25:V25');
+  nws.mergeCells('U26:V26');
+  nws.mergeCells('U27:V27');
+  nws.mergeCells('U28:V28');
+  nws.mergeCells('U29:V29');
+  
+  nws.getCell('U10').border  = item_top_right_style;
+  nws.getCell('U11').border  = item_right_style;
+  nws.getCell('U12').border  = item_right_style;
+  nws.getCell('U13').border  = item_right_style;
+  nws.getCell('U14').border  = item_right_style;
+  nws.getCell('U15').border  = item_right_style;
+  nws.getCell('U16').border  = item_right_style;
+  nws.getCell('U17').border  = item_right_style;
+  nws.getCell('U18').border  = item_right_style;
+  nws.getCell('U19').border  = item_right_style;
+  nws.getCell('U20').border  = item_right_style;
+  nws.getCell('U21').border  = item_right_style;
+  nws.getCell('U22').border  = item_right_style;
+  nws.getCell('U23').border  = item_right_style;
+  nws.getCell('U24').border  = item_right_style;
+  nws.getCell('U25').border  = item_right_style;
+  nws.getCell('U26').border  = item_right_style;
+  nws.getCell('U27').border  = item_right_style;
+  nws.getCell('U28').border  = item_right_style;
+  nws.getCell('U29').border  = item_right_style;
+  nws.getCell('U30').border  = item_bott_right_style;
+  nws.getCell('A30').border  = item_bott_left_style;
+  nws.getCell('B30').border  = item_bottom_style;
+
+  nws.mergeCells('S3:V3');
+  nws.mergeCells('S4:V4');
+  nws.mergeCells('S5:V5');
+  nws.mergeCells('S6:V6');
+  nws.mergeCells('S7:V7');
+
+  nws.getCell('S3').border =item_right_style;
+  nws.getCell('S4').border =item_right_style;
+  nws.getCell('S5').border =item_right_style;
+  nws.getCell('S6').border =item_right_style;
+  nws.getCell('S7').border =item_right_style;
+
+
+  nws.getCell('A3').border ={top: { style: 'thick', color: { argb: '000000' } },left: { style: 'thick', color: { argb: '000000' }},right: { style: 'thin', color: { argb: '000000' }},bottom: { style: 'thin', color: { argb: '000000' }}};
+  nws.getCell('D3').border =item_top_style;
+  nws.getCell('J3').border =item_top_style;
+  nws.getCell('K3').border =item_top_style;
+
+  nws.getCell('M2').border ={top: { style: 'thick', color: { argb: '000000' } },left: { style: 'thick', color: { argb: '000000' }},right: { style: 'thin', color: { argb: '000000' }},bottom: { style: 'thin', color: { argb: '000000' }}};
+  nws.getCell('N2').border ={top: { style: 'thick', color: { argb: '000000' } },left: { style: 'thin', color: { argb: '000000' }},right: { style: 'thick', color: { argb: '000000' }},bottom: { style: 'thin', color: { argb: '000000' }}};
+  
+  nws.getRow(30).height = 40;
+//
+  imageId = wb.addImage({
+    base64: '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',
+    extension: 'png',
+  });
+
+  nws.addImage(imageId, 'T30:V30'); // Fits image in cell A1
+
+mainCell = nws.getCell('A1');
+// JSA(Job safety Analysis 작업안전분석)_수시위험성평가
+mainCell.value = {
+    'richText': [
+        { 'font': { 'size': 24, 'bold': true }, 'text': 'JSA ' },
+        { 'font': { 'size': 16, 'bold': true }, 'text': '(Job safety Analysis 작업안전분석)' },
+        { 'font': { 'size': 11, 'bold': false }, 'text': '_수시위험성평가' }
+    ]
 }
-
-function exportExcel(exptblid, expsheetname, savefilename){ 
-    // step 1. workbook 생성
-    var wb = XLSX.utils.book_new();
-
-    // step 2. 시트 만들기 
-    // var newWorksheet = excelHandler.getWorksheet();
-    var newWorksheet = XLSX.utils.table_to_sheet(document.getElementById(exptblid));
-    
-    // step 3. workbook에 새로만든 워크시트에 이름을 주고 붙인다.  
-    XLSX.utils.book_append_sheet(wb, newWorksheet, expsheetname);
-
-    // step 4. 엑셀 파일 만들기 
-    var wbout = XLSX.write(wb, {bookType:'xlsx',  type: 'binary'});
-
-    // step 5. 엑셀 파일 내보내기 
-    saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), savefilename);
+//////////
+    const buffer = await wb.xlsx.writeBuffer();
+    saveAs(new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }), savefilename);
 }
 
 var today = new Date();
@@ -1067,7 +1338,6 @@ async function export_excel_on(plan_id) {
 					, PI2.IP_ADDR 
 					, PI2.COM_PORT
 					, PI2.RGB
-					,'RMI' SP_LINE
 					, RMI.JSA_CODE
 					, RMI.WORK_STEP
 					, RMI.WORK_TYPE
@@ -1093,113 +1363,320 @@ async function export_excel_on(plan_id) {
   <div class="ui basic segment no_mg no_pd h_100" style="overflow:auto">
     <table id="tableData" class="ui selectable celled compact single line striped unstackable structured head stuck table tbl_font">
     <thead>
-        <!-- 1 row 13col-->
+        <!-- 1 row 22 col-->
         <tr>
-            <th class="center aligned" colspan="4" >JSA(Job Safety Analysis 작업분석) _ 수시위험성평가</th>
-            <th class="center aligned">WO 번호</th> <!-- wo 번호-->
-            <th class="center aligned">zzzz</th>
-            <th class="center aligned">현장명</th> <!-- 현장명-->
-            <th class="center aligned"  colspan="6">${excel_user_data[0][6]}</th>
+            <th class="center aligned">JSA(Job Safety Analysis 작업분석) _ 수시위험성평가</th>
+            <th class="center aligned" >&nbsp;</th>  <!-  1-->
+            <th class="center aligned" >&nbsp;</th>  <!-  2--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  3--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  4--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  5--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  6--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  7--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  8--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  9--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 10--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 11--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 12--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 13--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 14--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 15--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 16--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 17--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 18--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 19--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 20--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 21--> 
         </tr>
-        <!-- 2 row -->
+        <!-- 2 row 22 col-->
         <tr>
-            <th class="center aligned" rowspan="2" colspan="2">작업명</th> <!--작업명-->
-            <th class="center aligned" rowspan="2" colspan="2">미션</th>
-            <td class="center aligned" rowspan="2">작업구분</td> <!--작업구분-->
-            <th class="center aligned" rowspan="2">구분</th>
-            <th class="center aligned">작성자</th> <!--작성자-->
-            <th class="center aligned">${__user.name}</th>
-            <th class="center aligned" colspan="2">작성일자</th> <!--작성일자-->
-            <th class="center aligned" colspan="3">${excel_user_data[0][24]}</th> 
-
+            <th class="center aligned" >&nbsp;</th>  <!-  1-->
+            <th class="center aligned" >&nbsp;</th>  <!-  2--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  3--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  4--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  5--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  6--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  7--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  8--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  9--> 
+            <th class="center aligned" >WO 번호</th> <!-- wo 번호 10 -->
+            <th class="center aligned" >&nbsp;</th>  <!- 11--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 12--> 
+            <th class="center aligned">현장명</th> <!-- 현장명--><!-- 13 -->
+            <th class="center aligned" >&nbsp;</th>  <!- 14--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 15--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 16--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 17--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 18--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 19--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 20--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 21--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 22--> 
         </tr>
         <!-- 3 row -->
         <tr>
-            <th class="center aligned">확인자</th> <!--확인자-->
-            <th class="center aligned">사또</th>
-            <th class="center aligned" colspan="2">계통보고시간</th> <!--계통보고시간-->
-            <th class="center aligned" colspan="3">11</th> 
+            <th class="center aligned" >작업명</th> <!--작업명-->
+            <th class="center aligned" >&nbsp;</th>  <!-  2--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  3--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  4 Title --> 
+            <th class="center aligned" >&nbsp;</th>  <!-  5--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  6--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  7--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  8--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  9--> 
+            <td class="center aligned" >작업구분</td> <!--작업구분 10-->
+            <th class="center aligned" > □ 일반작업   □ 위험작업</th> <!--11-->
+            <th class="center aligned" >&nbsp;</th>  <!- 12--> 
+            <th class="center aligned">작성자</th> <!--작성자 13-->
+            <th class="center aligned" >${__user.name}</th> <!--14-->
+            <th class="center aligned" >&nbsp;</th>  <!- 15--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 16--> 
+            <th class="center aligned" >작성일자</th> <!--작성일자-->
+            <th class="center aligned" >&nbsp;</th>  <!- 18--> 
+            <th class="center aligned" >${excel_user_data[0][23]}</th>  <!- 19--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 20--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 21--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 22--> 
         </tr>
         <!-- 4 row -->
         <tr>
-            <th class="center aligned" colspan="2">회사명</th> <!--회사명-->
-            <th class="center aligned" colspan="4"></th>
-            <th class="center aligned">검토자</th> <!--검토자-->
-            <th class="center aligned">홍길동</th>
-            <th class="center aligned" colspan="2">계통보고시간</th> <!--계통보고시간-->
-            <th class="center aligned" colspan="3">11</th> 
+            <th class="center aligned" >&nbsp;</th>  <!-  1-->
+            <th class="center aligned" >&nbsp;</th>  <!-  2--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  3--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  4--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  5--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  6--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  7--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  8--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  9--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 10--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 11--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 12--> 
+            <th class="center aligned">확인자</th> <!--확인자 13 -->
+            <th class="center aligned" >${__user.name}</th> <!--14-->
+            <th class="center aligned" >&nbsp;</th>  <!- 15--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 16--> 
+            <th class="center aligned" >확인일자</th> <!--확인일자-->
+            <th class="center aligned" >&nbsp;</th>  <!- 18--> 
+            <th class="center aligned" >${excel_user_data[0][23]}</th>  <!- 19--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 20--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 21--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 22--> 
         </tr>
         <!-- 5 row -->
         <tr>
-            <th class="center aligned" colspan="2">필요 보호구</th> <!--필요 보호구-->
-            <th class="center aligned" colspan="4"></th>
-            <th class="center aligned">승인자</th> <!--승인자-->
-            <th class="center aligned">승인녀</th>
-            <th class="center aligned" colspan="2">계통보고시간</th> <!--계통보고시간-->
-            <th class="center aligned" colspan="3">11</th> 
+            <th class="center aligned" >회사명</th> <!--회사명-->
+            <th class="center aligned" >&nbsp;</th>  <!-  2--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  3--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  4 Title --> 
+            <th class="center aligned" >&nbsp;</th>  <!-  5--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  6--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  7--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  8--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  9-->
+            <th class="center aligned" >&nbsp;</th>  <!- 10--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 11--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 12--> 
+            <th class="center aligned">검토자</th> <!--검토자 13-->
+            <th class="center aligned" >${__user.name}</th> <!--14-->
+            <th class="center aligned" >&nbsp;</th>  <!- 15--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 16--> 
+            <th class="center aligned" >검토일자</th> <!--확인일자-->
+            <th class="center aligned" >&nbsp;</th>  <!- 18--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 19--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 20--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 21--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 22--> 
         </tr>
         <!-- 6 row -->
         <tr>
-            <th class="center aligned" colspan="2">필요 장비/공구</th> <!--필요 장비/공구-->
-            <th class="center aligned" colspan="6">필요장비-공구</th>
-            <th class="center aligned" colspan="2">투입인원</th> <!--투입인원-->
-            <th class="center aligned" colspan="3">11</th> 
+            <th class="center aligned" >필요 보호구</th> <!--필요 보호구-->
+            <th class="center aligned" >&nbsp;</th>  <!-  2--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  3--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  4 Title --> 
+            <th class="center aligned" >&nbsp;</th>  <!-  5--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  6--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  7--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  8--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  9-->
+            <th class="center aligned" >&nbsp;</th>  <!- 10--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 11--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 12--> 
+            <th class="center aligned" >승인자</th> <!--승인자 13-->
+            <th class="center aligned" >${__user.name}</th> <!--14-->
+            <th class="center aligned" >&nbsp;</th>  <!- 15--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 16--> 
+            <th class="center aligned" >승인일자</th> <!--확인일자-->
+            <th class="center aligned" >&nbsp;</th>  <!- 18--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 19--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 20--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 21--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 22--> 
         </tr>
         <!-- 7 row -->
         <tr>
-            <th class="center aligned" colspan="2">핵심유해위험</th> <!--핵심유해위험-->
-            <th class="left aligned" colspan="11">
-                □가동설비접근
-                □추락위험
-                □밀폐공간
-                □전기작업
-                □중량물취급
-                □A형사다리
-                □이동기기구역
-                □고온고열
-                □전동기기취급
-                □용접작업
-                □고소작업차
-                □전기실출입
-            </th>
+            <th class="center aligned" colspan="3">필요 장비/공구</th> <!--필요 장비/공구-->
+            <th class="center aligned" >&nbsp;</th>  <!-  2--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  3--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  4 Title --> 
+            <th class="center aligned" >&nbsp;</th>  <!-  5--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  6--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  7--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  8--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  9-->
+            <th class="center aligned" >&nbsp;</th>  <!- 10--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 11--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 12--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 13--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 14--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 15--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 16--> 
+            <th class="center aligned" >투입인원</th> <!--투입인원 17-->
+            <th class="center aligned" >&nbsp; 명</th>  <!- 18--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 19--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 20--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 21--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 22--> 
+        </tr>
+        <!-- 8 row -->
+        <tr>
+            <th class="center aligned" >핵심유해위험</th> <!--핵심유해위험-->
+            <th class="center aligned" >&nbsp;</th>  <!-  2--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  3--> 
+            <th class="left aligned">&nbsp;□가동설비접근&nbsp;□추락위험&nbsp;□밀폐공간&nbsp;□전기작업&nbsp;□중량물취급&nbsp;□A형사다리&nbsp;□이동기기구역&nbsp;□고온고열&nbsp;□전동기기취급&nbsp;□용접작업&nbsp;□고소작업차&nbsp;□전기실출입</th>
+            <th class="center aligned" >&nbsp;</th>  <!-  5--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  6--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  7--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  8--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  9-->
+            <th class="center aligned" >&nbsp;</th>  <!- 10--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 11--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 12--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 13--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 14--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 15--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 16--> 
+            <th class="center aligned" >&nbsp;</th>  <!--17-->
+            <th class="center aligned" >&nbsp;</th>  <!- 18--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 19--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 20--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 21--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 22--> 
+        </tr>
+        <!-- 9 row space -->
+        <tr>
+            <th class="center aligned" >&nbsp;</th>  <!-  1-->
+            <th class="center aligned" >&nbsp;</th>  <!-  2--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  3--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  4--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  5--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  6--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  7--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  8--> 
+            <th class="center aligned" >&nbsp;</th>  <!-  9--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 10--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 11--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 12--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 13--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 14--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 15--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 16--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 17--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 18--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 19--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 20--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 21--> 
+            <th class="center aligned" >&nbsp;</th>  <!- 22--> 
         </tr>
     </thead>
     `;
     
     mtbltmp += `
     <tbody id="resource_body">
+        <!-- 10-->
         <tr>
-            <td class="center aligned" rowspan="2">순번</td>                              <!--순번-->
-            <td class="center aligned" rowspan="2" colspan="2">작업단계 <br>(Steps)</td>  <!--작업단계 2-->
-            <td class="center aligned" rowspan="2">유해위험요인 (Hazards)</td>            <!--유해위험요인 (Hazards) -->
-            <td class="center aligned" rowspan="2" colspan="4">대책 <br>(Controls)</td>   <!--대책 (Controls) -->
-            <td class="center aligned" colspan="4">위험성평가 (Controls)</td>             <!--위험성평가 (Controls) -->
-            <td class="center aligned" rowspan="2">조치자</td>                            <!--조치자-->
+            <td class="center aligned" >순번</td>                   <!-  1-->
+            <td class="center aligned" >작업단계 <br>(Steps)</td>   <!-  2--> 
+            <td class="center aligned" >&nbsp;</td>                 <!-  3--> 
+            <td class="center aligned" >&nbsp;</td>                 <!-  4--> 
+
+            <td class="center aligned" >유해위험요인 (Hazards)</td>  <!-  5--> 
+            <td class="center aligned" >&nbsp;</td>                 <!-  6--> 
+            <td class="center aligned" >&nbsp;</td>                 <!-  7--> 
+            <td class="center aligned" >&nbsp;</td>                 <!-  8--> 
+            <td class="center aligned" >&nbsp;</td>                 <!-  9--> 
+
+            <td class="center aligned" >대책 <br>(Controls)</td>    <!- 10--> 
+            <td class="center aligned" >&nbsp;</td>                 <!- 11--> 
+            <td class="center aligned" >&nbsp;</td>                 <!- 12--> 
+            <td class="center aligned" >&nbsp;</td>                 <!- 13--> 
+            <td class="center aligned" >&nbsp;</td>                 <!- 14--> 
+            <td class="center aligned" >&nbsp;</td>                 <!- 15--> 
+            <td class="center aligned" >&nbsp;</td>                 <!- 16--> 
+
+            <td class="center aligned" >위험성평가 (Controls)</td>   <!- 17--> 
+            <td class="center aligned" >&nbsp;</td>                 <!- 18--> 
+            <td class="center aligned" >&nbsp;</td>                 <!- 19--> 
+            <td class="center aligned" >&nbsp;</td>                 <!- 20--> 
+            <td class="center aligned" >조치자</td>                 <!- 21--> 
+            <td class="center aligned" >&nbsp;</td>                 <!- 22--> 
         </tr>
         <tr>
+            <td class="center aligned" >&nbsp;</td>                 <!-  1-->
+            <td class="center aligned" >&nbsp;</td>                 <!-  2--> 
+            <td class="center aligned" >&nbsp;</td>                 <!-  3--> 
+            <td class="center aligned" >&nbsp;</td>                 <!-  4--> 
+
+            <td class="center aligned" >&nbsp;</td>                 <!-  5--> 
+            <td class="center aligned" >&nbsp;</td>                 <!-  6--> 
+            <td class="center aligned" >&nbsp;</td>                 <!-  7--> 
+            <td class="center aligned" >&nbsp;</td>                 <!-  8--> 
+            <td class="center aligned" >&nbsp;</td>                 <!-  9--> 
+
+            <td class="center aligned" >&nbsp;</td>                 <!- 10--> 
+            <td class="center aligned" >&nbsp;</td>                 <!- 11--> 
+            <td class="center aligned" >&nbsp;</td>                 <!- 12--> 
+            <td class="center aligned" >&nbsp;</td>                 <!- 13--> 
+            <td class="center aligned" >&nbsp;</td>                 <!- 14--> 
+            <td class="center aligned" >&nbsp;</td>                 <!- 15--> 
+            <td class="center aligned" >&nbsp;</td>                 <!- 16--> 
             <td class="center aligned">빈도</td>   <!--빈도 -->
             <td class="center aligned">강도</td>   <!--강도 -->
             <td class="center aligned">위험도</td> <!--위험도 -->
             <td class="center aligned">등급</td>   <!--등급 -->
+            <td class="center aligned" >&nbsp;</td>                 <!- 21--> 
+            <td class="center aligned" >&nbsp;</td>                 <!- 22--> 
         </tr>
-        <tr>
-            <td class="center aligned" rowspan="6">1 </td> <!--순번-->
-            <td class="center middle" colspan="2" rowspan="6">준비단계</td>   <!--작업단계 -->
       `;
-      let flaged = '';
+      let flaged = 'N';
       excel_user_data.forEach(function(obj) 
       {
-        if (flaged) {mtbltmp +=`<tr>`};
         
         // 준비단계 :6 
         mtbltmp +=`
-            <td class="center aligned"> ${obj[17]}</td>
-            <td class="center aligned" colspan="4">${obj[18]}</td>            
+        <tr>
+            <td class="center aligned" >1 </td>
+            <td class="center middle"  >준비단계</td>
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" > ${obj[17]}</td>
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >${obj[18]}</td>            
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
             <td class="center aligned">${obj[19]}</td>
             <td class="center aligned">${obj[20]}</td>
             <td class="center aligned">${obj[21]}</td>
             <td class="center aligned">${obj[22]}</td>
-            <td class="center aligned">-</td>
+            <td class="center aligned" >&nbsp;</td>
+            <td class="center aligned" >&nbsp;</td>
           </tr>
           `;
         flaged = "Y";
@@ -1209,28 +1686,42 @@ async function export_excel_on(plan_id) {
       let loop_cnt = 6 - _size;
       for (var i=0; i<loop_cnt; i++)
       {
-        if ( flaged ) mtbltmp +=` <tr>`
-
         mtbltmp +=`
-            <td class="center aligned"> &nbsp;</td>
-            <td class="center aligned" colspan="4">&nbsp;</td>            
-            <td class="center aligned">&nbsp;</td>
-            <td class="center aligned">&nbsp;</td>
-            <td class="center aligned">&nbsp;</td>
-            <td class="center aligned">&nbsp;</td>
-            <td class="center aligned">&nbsp;</td>
+        <tr>
+            <td class="center aligned" >&nbsp;</td>
+            <td class="center middle"  >&nbsp;</td>
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>            
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>
+            <td class="center aligned" >&nbsp;</td>
+            <td class="center aligned" >&nbsp;</td>
+            <td class="center aligned" >&nbsp;</td>
           </tr>
           `;
         flaged ="Y";
       }
 
       flaged = '';
-      mtbltmp +=`
-          <!-- 작업실시 :9 -->
-          <tr>
-              <td class="center aligned" rowspan="9">2 </td> <!--순번-->
-              <td class="center aligned" colspan="2" rowspan="9">작업실시</td>   <!--작업실시 -->
-        `;
+    //   mtbltmp +=`
+    //       <!-- 작업실시 :9 -->
+    //       <tr>
+    //           <td class="center aligned" rowspan="9">2 </td> <!--순번-->
+    //           <td class="center aligned" rowspan="9" colspan="3" >작업실시</td>   <!--작업실시 -->
+    //     `;
       let excel_user_sql_p2 = `
             SELECT PMJ.ID
               ,PMJ.SEQ
@@ -1245,7 +1736,6 @@ async function export_excel_on(plan_id) {
               , PI2.IP_ADDR 
               , PI2.COM_PORT
               , PI2.RGB
-              ,'RMI' SP_LINE
               , RMI.JSA_CODE
               , RMI.WORK_STEP
               , RMI.WORK_TYPE
@@ -1267,17 +1757,39 @@ async function export_excel_on(plan_id) {
 
       excel_user_data_p2.forEach(function(obj) 
       {
-        if (flaged) {mtbltmp +=`<tr>`};
+//         if (flaged) {mtbltmp +=`<tr>`};
         
+// //
+//           <tr>
+//               <td class="center aligned" rowspan="9">2 </td> <!--순번-->
+//               <td class="center aligned" rowspan="9" colspan="3" >작업실시</td>   <!--작업실시 -->
+
+// //        
         // 작업실시 : 9 
         mtbltmp +=`
-            <td class="center aligned"> ${obj[17]}</td>
-            <td class="center aligned" colspan="4">${obj[18]}</td>            
+          <tr>
+            <td class="center aligned" >2 </td>
+            <td class="center middle"  >작업실시</td>
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" > ${obj[17]}</td>
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >${obj[18]}</td>            
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
             <td class="center aligned">${obj[19]}</td>
             <td class="center aligned">${obj[20]}</td>
             <td class="center aligned">${obj[21]}</td>
             <td class="center aligned">${obj[22]}</td>
-            <td class="center aligned">-</td>
+            <td class="center aligned" >&nbsp;</td>
+            <td class="center aligned" >&nbsp;</td>
           </tr>
           `;
         flaged = "Y";
@@ -1287,29 +1799,43 @@ async function export_excel_on(plan_id) {
       loop_cnt = 9 - _size;
       for (var i=0; i<loop_cnt; i++)
       {
-        if ( flaged ) mtbltmp +=` <tr>`
+        // if ( flaged ) mtbltmp +=` <tr>`
         mtbltmp +=`
-                <!--순번-->
-                <!--작업단계 -->
-                <td class="center aligned"> &nbsp;</td> <!--유해위험요인 (Hazards) -->
-                <td class="center aligned" colspan="4">&nbsp;</td>   <!--대책 (Controls) -->            
-                <td class="center aligned">&nbsp;</td>
-                <td class="center aligned">&nbsp;</td>
-                <td class="center aligned">&nbsp;</td>
-                <td class="center aligned">&nbsp;</td>
-                <td class="center aligned">&nbsp;</td>
-            </tr>
+          <tr>
+            <td class="center aligned" >&nbsp;</td>
+            <td class="center middle"  >&nbsp;</td>
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>            
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>
+            <td class="center aligned" >&nbsp;</td>
+            <td class="center aligned" >&nbsp;</td>
+            <td class="center aligned" >&nbsp;</td>
+           </tr>
           `;
           flaged ="Y";
       }
 
       flaged = '';
-      mtbltmp +=`
-          <!-- 작업실시 :9 -->
-          <tr>
-              <td class="center aligned" rowspan="3">3 </td> <!--순번-->
-              <td class="center aligned" colspan="2" rowspan="3">작업종료</td>   <!--작업실시 -->
-        `;
+    //   mtbltmp +=`
+    //       <!-- 작업실시 :9 -->
+    //       <tr>
+    //           <td class="center aligned" rowspan="3">3 </td> <!--순번-->
+    //           <td class="center aligned" colspan="3" rowspan="3">작업종료</td>   <!--작업실시 -->
+    //     `;
       let excel_user_sql_p3 = `
             SELECT PMJ.ID
               ,PMJ.SEQ
@@ -1324,7 +1850,6 @@ async function export_excel_on(plan_id) {
               , PI2.IP_ADDR 
               , PI2.COM_PORT
               , PI2.RGB
-              ,'RMI' SP_LINE
               , RMI.JSA_CODE
               , RMI.WORK_STEP
               , RMI.WORK_TYPE
@@ -1346,17 +1871,31 @@ async function export_excel_on(plan_id) {
 
       excel_user_data_p3.forEach(function(obj) 
       {
-        if (flaged) {mtbltmp +=`<tr>`};
-        
-        // 작업실시 : 9 
+        // 작업종료 : 3 
         mtbltmp +=`
-            <td class="center aligned"> ${obj[17]}</td>
-            <td class="center aligned" colspan="4">${obj[18]}</td>            
+          <tr>
+            <td class="center aligned" >3 </td>
+            <td class="center middle"  >작업종료</td>
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" > ${obj[17]}</td>
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >${obj[18]}</td>            
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
             <td class="center aligned">${obj[19]}</td>
             <td class="center aligned">${obj[20]}</td>
             <td class="center aligned">${obj[21]}</td>
             <td class="center aligned">${obj[22]}</td>
-            <td class="center aligned">-</td>
+            <td class="center aligned" >&nbsp;</td>
+            <td class="center aligned" >&nbsp;</td>
           </tr>
           `;
         flaged = "Y";
@@ -1366,18 +1905,31 @@ async function export_excel_on(plan_id) {
       loop_cnt = 3 - _size;
       for (var i=0; i<loop_cnt; i++)
       {
-        if ( flaged ) mtbltmp +=` <tr>`
         mtbltmp +=`
-                <!--순번-->
-                <!--작업단계 -->
-                <td class="center aligned"> &nbsp;</td> <!--유해위험요인 (Hazards) -->
-                <td class="center aligned" colspan="4">&nbsp;</td>   <!--대책 (Controls) -->            
-                <td class="center aligned">&nbsp;</td>
-                <td class="center aligned">&nbsp;</td>
-                <td class="center aligned">&nbsp;</td>
-                <td class="center aligned">&nbsp;</td>
-                <td class="center aligned">&nbsp;</td>
-            </tr>
+          <tr>
+            <td class="center aligned" >&nbsp;</td>
+            <td class="center middle"  >&nbsp;</td>
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>            
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>     
+            <td class="center aligned" >&nbsp;</td>
+            <td class="center aligned" >&nbsp;</td>
+            <td class="center aligned" >&nbsp;</td>
+            <td class="center aligned" >&nbsp;</td>
+           </tr>
           `;
           flaged ="Y";
       }
@@ -1385,9 +1937,53 @@ async function export_excel_on(plan_id) {
         <!-- 서명 :3 -->
         <tr>
             <td class="center aligned" >서명 </td> <!--순번-->
-            <td class="center aligned" colspan="12"><div><img src="data:image/png;base64,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" 
-                                                              style="width: 100"/></div> </td>   <!--작업실시 -->
-        </tr>s
+            <td class="center aligned" >&nbsp;</td>  <!-  2--> 
+            <td class="center aligned" >&nbsp;</td>  <!-  3--> 
+            <td class="center aligned" >&nbsp;</td>  <!-  4--> 
+            <td class="center aligned" >&nbsp;</td>  <!-  5--> 
+            <td class="center aligned" >&nbsp;</td>  <!-  6--> 
+            <td class="center aligned" >&nbsp;</td>  <!-  7--> 
+            <td class="center aligned" >&nbsp;</td>  <!-  8--> 
+            <td class="center aligned" >&nbsp;</td>  <!-  9--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 10--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 11--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 12--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 13--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 14--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 15--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 16--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 17--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 18--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 19--> 
+            <td class="center aligned" >&nbsp;<div><img src="data:image/png;base64,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" style="width: 100"/></div> &nbsp;</td>   <!--작업실시 -->
+            <td class="center aligned" >&nbsp;</td>  <!- 21--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 22-->             
+        </tr>
+        <!--  row space -->
+        <tr>
+            <td class="center aligned" >&nbsp;</td>  <!-  1-->
+            <td class="center aligned" >&nbsp;</td>  <!-  2--> 
+            <td class="center aligned" >&nbsp;</td>  <!-  3--> 
+            <td class="center aligned" >&nbsp;</td>  <!-  4--> 
+            <td class="center aligned" >&nbsp;</td>  <!-  5--> 
+            <td class="center aligned" >&nbsp;</td>  <!-  6--> 
+            <td class="center aligned" >&nbsp;</td>  <!-  7--> 
+            <td class="center aligned" >&nbsp;</td>  <!-  8--> 
+            <td class="center aligned" >&nbsp;</td>  <!-  9--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 10--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 11--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 12--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 13--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 14--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 15--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 16--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 17--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 18--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 19--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 20--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 21--> 
+            <td class="center aligned" >&nbsp;</td>  <!- 22--> 
+        </tr>
     </tbody>
     </table>
   </div>
